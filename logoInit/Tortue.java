@@ -1,10 +1,11 @@
 // package logo;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
-import java.util.*;
-import java.io.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /*************************************************************************
