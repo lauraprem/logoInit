@@ -1,16 +1,11 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 
 public class FenetrePrincipal extends JFrame implements Observateur {
-	
-	private JTextField inputValue;
 
 	public FenetrePrincipal() {
 		super("un logo tout simple");
@@ -39,6 +34,4 @@ public class FenetrePrincipal extends JFrame implements Observateur {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 }

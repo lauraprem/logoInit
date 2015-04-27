@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -20,7 +21,11 @@ public class MenuHaut extends JPanel implements Observateur {
 	public static final Dimension VGAP = new Dimension(1, 5);
 	public static final Dimension HGAP = new Dimension(5, 1);
 	
+	private ArrayList<JButton> listButon;
+	
 	public MenuHaut(){
+		listButon = new ArrayList<JButton>();
+		
 		JToolBar toolBar = new JToolBar();
 		toolBar.add(Box.createRigidArea(HGAP));
 		JTextField inputValue = new JTextField("45", 5);
@@ -56,7 +61,15 @@ public class MenuHaut extends JPanel implements Observateur {
 		});
 	}
 	
-	// utilitaires pour installer des boutons et des menus
+	public ArrayList<JButton> getListButon() {
+		return listButon;
+	}
+
+	public void setListButon(ArrayList<JButton> listButon) {
+		this.listButon = listButon;
+	}
+
+		// utilitaires pour installer des boutons et des menus
 		public void addButton(JComponent p, String name, String tooltiptext, String imageName) {
 			JButton b;
 			if ((imageName == null) || (imageName.equals(""))) {
@@ -74,7 +87,7 @@ public class MenuHaut extends JPanel implements Observateur {
 			b.setToolTipText(tooltiptext);
 			b.setBorder(BorderFactory.createRaisedBevelBorder());
 			b.setMargin(new Insets(0, 0, 0, 0));
-//			b.addActionListener(this);
+			listButon.add(b);
 		}
 
 		@Override
