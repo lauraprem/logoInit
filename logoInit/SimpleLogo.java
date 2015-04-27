@@ -29,7 +29,7 @@ import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import model.Tortue;
+import model.TortueFromesPredefinies;
 
 /*************************************************************************
 
@@ -46,12 +46,12 @@ import model.Tortue;
 **************************************************************************/
 
 public class SimpleLogo extends JFrame implements ActionListener {
-	public static final Dimension	VGAP	= new Dimension(1, 5);
-	public static final Dimension	HGAP	= new Dimension(5, 1);
+	public static final Dimension VGAP = new Dimension(1, 5);
+	public static final Dimension HGAP = new Dimension(5, 1);
 
-	private FeuilleDessin			feuille;
-	private Tortue					courante;
-	private JTextField				inputValue;
+	private FeuilleDessin feuille;
+	private TortueFromesPredefinies courante;
+	private JTextField inputValue;
 
 	/**
 	 * @param args
@@ -118,7 +118,7 @@ public class SimpleLogo extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox) e.getSource();
 				int n = cb.getSelectedIndex();
-				courante.setColor(n);
+				courante.setCouleur(n);
 			}
 		});
 
@@ -169,7 +169,7 @@ public class SimpleLogo extends JFrame implements ActionListener {
 		getContentPane().add(feuille, "Center");
 
 		// Creation de la tortue
-		Tortue tortue = new Tortue();
+		TortueFromesPredefinies tortue = new TortueFromesPredefinies();
 
 		// Deplacement de la tortue au centre de la feuille
 		tortue.setCoor(500 / 2, 400 / 2);

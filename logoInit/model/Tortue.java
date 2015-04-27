@@ -7,6 +7,8 @@ import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import vue.Observateur;
+
 /*************************************************************************
 
  Un petit Logo minimal qui devra etre ameliore par la suite
@@ -22,7 +24,7 @@ import java.util.Iterator;
 
 /** La classe Tortue qui se deplace en coordonnees polaires **/
 
-public class Tortue {
+public class Tortue implements Observable {
 
 	// ----------- Attributs statiques -----------\\
 
@@ -37,7 +39,7 @@ public class Tortue {
 	protected static final int rb = 5;
 
 	/**
-	 * Rapport radians/degrés pour la conversion
+	 * Rapport radians/degrï¿½s pour la conversion
 	 */
 	protected static final double ratioDegRad = 0.0174533;
 
@@ -51,27 +53,31 @@ public class Tortue {
 	/**
 	 * {@link Coordonnees} de la Tortue
 	 */
-	protected Coordonnees coor; // Coordonnees de la tortue
+	protected Point coor;						// Coordonnees
+	// de la tortue
 
 	/**
-	 * Direction de la tortue (angle en degré)
+	 * Direction de la tortue (angle en degrï¿½)
 	 */
 	protected int dir;
 
 	/**
-	 * true lorsque le crayon est baissé, faux s'il est levé. True par défaut
+	 * true lorsque le crayon est baissï¿½, faux s'il est levï¿½. True par dï¿½faut
 	 */
 	protected boolean crayon;
 
 	/**
 	 * Couleur du trait
 	 */
-	protected int coul;
+	protected Couleur couleur;
+
+	private ArrayList<Observateur> observateurs;
 
 	// ----------- Constructeur -----------\\
 
 	public Tortue() {
 		listSegments = new ArrayList<Segment>();
+		observateurs = new ArrayList<Observateur>();
 		reset();
 	}
 
@@ -79,9 +85,9 @@ public class Tortue {
 
 	public void reset() {
 		// on initialise la position de la tortue
-		coor = new Coordonnees();
+		coor = new Point();
 		dir = -90;
-		coul = 0;
+		couleur = new Couleur();
 		crayon = true;
 		listSegments.clear();
 	}
@@ -92,14 +98,14 @@ public class Tortue {
 		}
 
 		// Dessine les segments
-		for (Iterator it = listSegments.iterator(); it.hasNext();) {
+		for (Iterator<Segment> it = listSegments.iterator(); it.hasNext();) {
 			Segment seg = (Segment) it.next();
 			seg.drawSegment(graph);
 		}
 
 		// Calcule les 3 coins du triangle a partir de
 		// la position de la tortue p
-		Point p = new Point(coor.getX(), coor.getY());
+		Point p = new Point(coor);
 		Polygon arrow = new Polygon();
 
 		// Calcule des deux bases
@@ -112,75 +118,39 @@ public class Tortue {
 		// Sens de la fleche
 
 		// Pointe
-		Point p2 = new Point((int) Math.round(p.x + r * Math.cos(theta)),
-				(int) Math.round(p.y - r * Math.sin(theta)));
+		Point p2 = new Point((int) Math.round(p.x + r * Math.cos(theta)), (int) Math.round(p.y - r * Math.sin(theta)));
 		arrow.addPoint(p2.x, p2.y);
-		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta + alpha)),
-				(int) Math.round(p2.y + r * Math.sin(theta + alpha)));
+		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta + alpha)), (int) Math.round(p2.y + r * Math.sin(theta + alpha)));
 
 		// Base2
-		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta - alpha)),
-				(int) Math.round(p2.y + r * Math.sin(theta - alpha)));
+		arrow.addPoint((int) Math.round(p2.x - r * Math.cos(theta - alpha)), (int) Math.round(p2.y + r * Math.sin(theta - alpha)));
 
 		arrow.addPoint(p2.x, p2.y);
 		graph.setColor(Color.green);
 		graph.fillPolygon(arrow);
 	}
 
-	protected Color decodeColor(int c) {
-		switch (c) {
-		case 0:
-			return (Color.black);
-		case 1:
-			return (Color.blue);
-		case 2:
-			return (Color.cyan);
-		case 3:
-			return (Color.darkGray);
-		case 4:
-			return (Color.red);
-		case 5:
-			return (Color.green);
-		case 6:
-			return (Color.lightGray);
-		case 7:
-			return (Color.magenta);
-		case 8:
-			return (Color.orange);
-		case 9:
-			return (Color.gray);
-		case 10:
-			return (Color.pink);
-		case 11:
-			return (Color.yellow);
-		default:
-			return (Color.black);
-		}
-	}
-
 	/** les procedures de base de fonctionnement de la tortue */
 
 	// avancer de n pas
 	public void avancer(int dist) {
-		int newX = (int) Math.round(coor.getX() + dist
-				* Math.cos(ratioDegRad * dir));
-		int newY = (int) Math.round(coor.getY() + dist
-				* Math.sin(ratioDegRad * dir));
+		int newX = (int) Math.round(coor.getX() + dist * Math.cos(ratioDegRad * dir));
+		int newY = (int) Math.round(coor.getY() + dist * Math.sin(ratioDegRad * dir));
 
 		if (crayon == true) {
 			Segment seg = new Segment();
 
-			seg.ptStart.x = coor.getX();
-			seg.ptStart.y = coor.getY();
+			seg.ptStart.x = coor.x;
+			seg.ptStart.y = coor.y;
 			seg.ptEnd.x = newX;
 			seg.ptEnd.y = newY;
-			seg.color = decodeColor(coul);
+			seg.color = couleur.decodeColor();
 
 			listSegments.add(seg);
 		}
 
-		coor.setX(newX);
-		coor.setY(newY);
+		coor.x = newX;
+		coor.y = newY;
 	}
 
 	// aller a droite
@@ -203,61 +173,48 @@ public class Tortue {
 		crayon = false;
 	}
 
-	// pour changer de couleur de dessin
-	public void couleur(int n) {
-		coul = n % 12;
-	}
-
-	public void couleurSuivante() {
-		couleur(coul + 1);
-	}
-
-	/** quelques classiques */
-
-	public void carre() {
-		for (int i = 0; i < 4; i++) {
-			avancer(100);
-			droite(90);
-		}
-	}
-
-	public void poly(int n, int a) {
-		for (int j = 0; j < a; j++) {
-			avancer(n);
-			droite(360 / a);
-		}
-	}
-
-	public void spiral(int n, int k, int a) {
-		for (int i = 0; i < k; i++) {
-			couleur(coul + 1);
-			avancer(n);
-			droite(360 / a);
-			n = n + 1;
-		}
-	}
-
 	// ------------ Getter && Setter ------------\\
 
-	public Coordonnees getCoor() {
+	@Override
+	public void AjoutObservateur(Observateur o) {
+		observateurs.add(o);
+	}
+
+	@Override
+	public void SupprimerObservateur(Observateur o) {
+		observateurs.remove(o);
+	}
+
+	@Override
+	public void NotifierObservateur() {
+		for (Observateur obs : observateurs) {
+			obs.Update();
+		}
+	}
+
+	public Point getCoor() {
 		return coor;
 	}
 
-	public void setCoor(Coordonnees coor) {
+	public void setCoor(Point coor) {
 		this.coor = coor;
 	}
 
 	public void setCoor(int x, int y) {
-		this.coor.setX(x);
-		this.coor.setY(y);
+		this.coor.x = x;
+		this.coor.y = y;
 	}
 
-	public void setColor(int n) {
-		coul = n;
+	public Couleur getCouleur() {
+		return couleur;
 	}
 
-	public int getColor() {
-		return coul;
+	public void setCouleur(Couleur couleur) {
+		this.couleur = couleur;
+	}
+
+	public void setCouleur(int couleur) {
+		this.couleur.setCouleur(couleur);
 	}
 
 }
