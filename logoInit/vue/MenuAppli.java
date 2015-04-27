@@ -26,10 +26,6 @@ public class MenuAppli extends JMenuBar implements Observateur {
 		this.add(menuFile);
 		addMenuItem(menuFile, "Effacer", "Effacer", KeyEvent.VK_N);
 		addMenuItem(menuFile, "Quitter", "Quitter", KeyEvent.VK_Q);
-//		EcouteurQuitter ecouteurQuitter = new EcouteurQuitter();
-//		menuFile.addActionListener(ecouteurQuitter);
-		EcouteurEffacer ecouteurEffacer = new EcouteurEffacer();
-		menuFile.addActionListener(ecouteurEffacer);
 
 		menuCommandes = new JMenu("Commandes"); // on installe le premier
 		this.add(menuCommandes);

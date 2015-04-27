@@ -1,15 +1,15 @@
 package vue;
 // package logo;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 import model.Tortue;
-
-import java.awt.event.*;
-import java.util.*;
-import java.io.*;
 
 /**
  * Titre :        Logo
@@ -22,6 +22,8 @@ import java.io.*;
 
 public class FeuilleDessin extends JPanel implements Observateur {
 	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
+	private Tortue tortue;
+	private DessinTortue dessinTortue;
 	
 	public FeuilleDessin() {
 		this.setBackground(Color.white);
@@ -29,6 +31,13 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		this.setPreferredSize(new Dimension(600, 400));
 
 		tortues = new ArrayList<Tortue>();
+		
+		// Deplacement de la tortue au centre de la feuille
+		tortue = new Tortue();
+		tortue.setCoor(500 / 2, 400 / 2);
+		dessinTortue = new DessinTortue(tortue);
+		tortues.add(tortue);
+		
 	}
 
 	public void addTortue(Tortue o) {
@@ -53,12 +62,17 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		g.setColor(c);
 
 		showTurtles(g);
+		
+		
+		
 	}
 	
 	public void showTurtles(Graphics g) {
 		for(Iterator it = tortues.iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-			t.drawTurtle(g);
+			
+			// ajouuuuuuuuuuuut
+			dessinTortue.drawTurtle(g);
 		}
 	}
 
