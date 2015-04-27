@@ -1,7 +1,11 @@
 // package logo;
 
 import java.awt.*;
+
 import javax.swing.*;
+
+import model.Tortue;
+
 import java.awt.event.*;
 import java.util.*;
 import java.io.*;
