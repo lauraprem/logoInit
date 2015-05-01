@@ -1,4 +1,4 @@
-package vue;
+package vue.menus;
 
 import java.awt.Event;
 import java.awt.event.KeyEvent;

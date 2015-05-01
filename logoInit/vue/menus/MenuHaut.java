@@ -1,4 +1,4 @@
-package vue;
+package vue.menus;
 
 import java.awt.Dimension;
 import java.awt.Insets;

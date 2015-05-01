@@ -5,6 +5,9 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
+import vue.menus.MenuBas;
+import vue.menus.MenuFichier;
+import vue.menus.MenuHaut;
 import model.EnvironnementTortue;
 
 public class FenetrePrincipal extends JFrame{
