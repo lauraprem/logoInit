@@ -142,11 +142,11 @@ public class Tortue {
 		if (crayon == true) {
 			Segment seg = new Segment();
 
-			seg.ptStart.x = coor.x;
-			seg.ptStart.y = coor.y;
-			seg.ptEnd.x = newX;
-			seg.ptEnd.y = newY;
-			seg.color = couleur.decodeColor();
+			seg.getPtStart().x = coor.x;
+			seg.getPtStart().y = coor.y;
+			seg.getPtEnd().x = newX;
+			seg.getPtEnd().y = newY;
+			seg.setColor(couleur.decodeColor());
 
 			listSegments.add(seg);
 		}

@@ -37,7 +37,11 @@ public class DessinTortue {
 		for (Iterator<Segment> it = tortue.getListSegments().iterator(); it
 				.hasNext();) {
 			Segment seg = (Segment) it.next();
-			seg.drawSegment(graph);
+			if (graph == null) {
+				return;
+			}
+			graph.setColor(seg.getColor());
+			graph.drawLine(seg.getPtStart().x, seg.getPtStart().y, seg.getPtEnd().x, seg.getPtEnd().y);
 		}
 
 		// Calcule les 3 coins du triangle a partir de

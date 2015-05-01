@@ -29,6 +29,11 @@ public class Couleur {
 		idCouleur = c;
 		nom = n;
 	}
+	
+	public Couleur(int c) {
+		idCouleur = c;
+		nom = "";
+	}
 
 	/**
 	 * Couleur noir par défaut
