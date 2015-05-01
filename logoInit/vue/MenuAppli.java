@@ -11,7 +11,7 @@ import javax.swing.KeyStroke;
 
 import model.EnvironnementTortue;
 
-public class MenuAppli extends JMenuBar implements Observateur {
+public class MenuAppli extends JMenuBar {
 
 	JMenu menuFile;
 	JMenu menuCommandes;
@@ -19,9 +19,7 @@ public class MenuAppli extends JMenuBar implements Observateur {
 	
 	private ArrayList<JMenuItem> listButon;
 
-	public MenuAppli(EnvironnementTortue model) {
-		
-		model.AjoutObservateur(this);
+	public MenuAppli() {
 		
 		listButon = new ArrayList<JMenuItem>();
 		
@@ -67,11 +65,5 @@ public class MenuAppli extends JMenuBar implements Observateur {
 
 	public void setListButon(ArrayList<JMenuItem> listButon) {
 		this.listButon = listButon;
-	}
-
-	@Override
-	public void Update() {
-		// TODO
-		System.out.println("Menu Appli");
 	}
 }

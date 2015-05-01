@@ -8,14 +8,12 @@ import javax.swing.JPanel;
 
 import model.EnvironnementTortue;
 
-public class MenuBas extends JPanel implements Observateur {
+public class MenuBas extends JPanel {
 	
 	private ArrayList<JButton> listButon;
 	
-	public MenuBas(LayoutManager layout, EnvironnementTortue model){
+	public MenuBas(LayoutManager layout){
 		super(layout);
-		
-		model.AjoutObservateur(this);
 		
 		listButon = new ArrayList<JButton>();
 		
@@ -36,11 +34,5 @@ public class MenuBas extends JPanel implements Observateur {
 
 	public void setListButon(ArrayList<JButton> listButon) {
 		this.listButon = listButon;
-	}
-
-	@Override
-	public void Update() {
-		// TODO
-		System.out.println("Update MenuBas");
 	}
 }

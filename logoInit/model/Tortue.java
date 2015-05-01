@@ -152,6 +152,8 @@ public class Tortue implements Observable {
 
 		coor.x = newX;
 		coor.y = newY;
+		
+		System.out.println("X : "+newX+" Y : "+newY);
 	}
 
 	// aller a droite

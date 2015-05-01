@@ -23,10 +23,12 @@ import model.Tortue;
 
 public class FeuilleDessin extends JPanel implements Observateur {
 	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
-	private Tortue tortue;
+	private Tortue tortueCourante;
 	private DessinTortue dessinTortue;
 	
 	public FeuilleDessin(EnvironnementTortue modele) {
+		modele.AjoutObservateur(this);
+		
 		this.setBackground(Color.white);
 		this.setSize(new Dimension(600, 400));
 		this.setPreferredSize(new Dimension(600, 400));
@@ -34,7 +36,7 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		tortues = new ArrayList<Tortue>();
 		
 		// Deplacement de la tortue au centre de la feuille
-		tortue = new Tortue();
+		tortueCourante = modele.getTortue();
 		
 		dessinTortue = new DessinTortue(modele.getTortue());
 		tortues.add(modele.getTortue());
@@ -63,24 +65,18 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		g.setColor(c);
 
 		showTurtles(g);
-		
-		
-		
 	}
 	
 	public void showTurtles(Graphics g) {
 		for(Iterator it = tortues.iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
 			
-			// ajouuuuuuuuuuuut
 			dessinTortue.drawTurtle(g);
 		}
 	}
 
 	@Override
 	public void Update() {
-		// TODO
 		repaint();
-		System.out.println("Update Dessin");
 	}
 }

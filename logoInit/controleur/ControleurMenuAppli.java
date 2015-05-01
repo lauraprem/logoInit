@@ -19,13 +19,25 @@ public class ControleurMenuAppli implements ActionListener {
 		
 		switch (ev.getActionCommand()) {
 		case "Quitter":
-			System.out.println("QUITTER");
 			System.exit(0);
 			break;
-			
+		case "Effacer":
+//			model.
+			break;
 		case "Avancer":
-			System.out.println("Avancer");
 			model.avancerTortue();
+			break;
+		case "Droite":
+			model.tournerDroiteTortue();
+			break;
+		case "Gauche":
+			model.tournerGaucheTortue();
+			break;
+		case "Lever":
+			model.monter();
+			break;
+		case "Baisser":
+			model.baisser();
 			break;
 
 		default:
