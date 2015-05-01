@@ -14,9 +14,12 @@ public class ControleurMenuAppli implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void actionPerformed(ActionEvent ev) {
+		System.out.println("ControleurMenuAppli");
+//		if (ev.getActionCommand() == "Quitter") {
+//			System.out.println("QUITTER");
+//			System.exit(0);
+//		}
 	}
 
 }

@@ -26,6 +26,7 @@ public class ControleurPrincipal {
 	public ControleurPrincipal(Tortue _modele, FenetrePrincipal _vue) {
 		modele = _modele;
 		vue = _vue;
+
 		for (JMenuItem boutton : vue.getMenuAppli().getListButon()) {
 			boutton.addActionListener(new ControleurMenuAppli(modele));
 		}

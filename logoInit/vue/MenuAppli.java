@@ -9,7 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import controleur.EcouteurEffacer;
+import controleur.EcouteurQuitter;
 
 public class MenuAppli extends JMenuBar implements Observateur {
 
