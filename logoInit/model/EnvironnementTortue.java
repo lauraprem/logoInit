@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import vue.Observateur;
 
 public class EnvironnementTortue implements Observable{
-	private Tortue tortue;
-	private Couleur couleurCourante;
+	private TortueFromesPredefinies tortue;
 	private int dis;
 	private ArrayList<Couleur> listCouleur;
 	
@@ -19,14 +18,14 @@ public class EnvironnementTortue implements Observable{
 
 		dis = 45;
 
-		tortue = new Tortue();
+		tortue = new TortueFromesPredefinies();
 	}
 
 	public Tortue getTortue() {
 		return tortue;
 	}
 
-	public void setTortue(Tortue tortue) {
+	public void setTortue(TortueFromesPredefinies tortue) {
 		this.tortue = tortue;
 	}
 
@@ -40,14 +39,6 @@ public class EnvironnementTortue implements Observable{
 
 	public void addListCouleur(Couleur couleur) {
 		this.listCouleur.add(couleur);
-	}
-
-	public Couleur getCouleurCourante() {
-		return couleurCourante;
-	}
-
-	public void setCouleurCourante(Couleur couleurCourante) {
-		this.couleurCourante = couleurCourante;
 	}
 
 	public int getDis() {
@@ -66,8 +57,6 @@ public class EnvironnementTortue implements Observable{
 		for (int i = 0; i < colorStrings.length; i++) {
 			listCouleur.add(new Couleur(i, colorStrings[i]));
 		}
-
-		couleurCourante = listCouleur.get(5);
 	}
 
 	public String[] couleurstoStringChaine() {
@@ -77,6 +66,30 @@ public class EnvironnementTortue implements Observable{
 		}
 
 		return tabColorStrings;
+	}
+	public void proc1() {
+		tortue.carre();
+		this.NotifierObservateur();
+	}
+
+	public void proc2() {
+		tortue.poly(60, 8);
+		this.NotifierObservateur();
+	}
+
+	public void proc3() {
+		tortue.spiral(50, 40, 6);
+		this.NotifierObservateur();
+	}
+	
+	public void setCouleur(int couleur) {
+		tortue.setCouleur(couleur);
+		this.NotifierObservateur();
+	}
+	
+	public void reset() {
+		tortue.reset();
+		this.NotifierObservateur();
 	}
 
 	public void avancerTortue() {

@@ -19,15 +19,15 @@ import javax.swing.JToolBar;
 
 import model.EnvironnementTortue;
 
-public class MenuHaut extends JPanel implements Observateur {
+public class MenuHaut extends JPanel{
 	public static final Dimension VGAP = new Dimension(1, 5);
 	public static final Dimension HGAP = new Dimension(5, 1);
 
 	private ArrayList<JButton> listButon;
 	private ArrayList<JComboBox> comboBox;
+	private JTextField inputValue;
 
 	public MenuHaut(EnvironnementTortue model) {
-		model.AjoutObservateur(this);
 
 		listButon = new ArrayList<JButton>();
 		comboBox = new ArrayList<JComboBox>();
@@ -37,7 +37,7 @@ public class MenuHaut extends JPanel implements Observateur {
 		addButton(toolBar, "Effacer", "Nouveau dessin", "/icons/index.png");
 
 		toolBar.add(Box.createRigidArea(HGAP));
-		JTextField inputValue = new JTextField(
+		inputValue = new JTextField(
 				Integer.toString(model.getDis()), 5);
 		toolBar.add(inputValue);
 		this.add(toolBar);
@@ -55,6 +55,17 @@ public class MenuHaut extends JPanel implements Observateur {
 
 		comboBox.add(colorList);
 	}
+	
+
+	public JTextField getInputValue() {
+		return inputValue;
+	}
+
+
+	public void setInputValue(JTextField inputValue) {
+		this.inputValue = inputValue;
+	}
+
 
 	public ArrayList<JButton> getListButon() {
 		return listButon;
@@ -92,11 +103,5 @@ public class MenuHaut extends JPanel implements Observateur {
 		b.setBorder(BorderFactory.createRaisedBevelBorder());
 		b.setMargin(new Insets(0, 0, 0, 0));
 		listButon.add(b);
-	}
-
-	@Override
-	public void Update() {
-		// TODO
-		System.out.println("Update MenuHaut");
 	}
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ import vue.Observateur;
 
 /** La classe Tortue qui se deplace en coordonnees polaires **/
 
-public class Tortue implements Observable {
+public class Tortue {
 
 	// ----------- Attributs statiques -----------\\
 	/**
@@ -88,7 +89,7 @@ public class Tortue implements Observable {
 	}
 
 	public void setCouleur(int couleur) {
-		this.couleur.setCouleur(couleur);
+		this.couleur.setIdCouleur(couleur);
 	}
 
 	public int getDir() {
@@ -152,8 +153,6 @@ public class Tortue implements Observable {
 
 		coor.x = newX;
 		coor.y = newY;
-		
-		System.out.println("X : "+newX+" Y : "+newY);
 	}
 
 	// aller a droite
@@ -175,22 +174,4 @@ public class Tortue implements Observable {
 	public void leverCrayon() {
 		crayon = false;
 	}
-
-	@Override
-	public void AjoutObservateur(Observateur o) {
-		observateurs.add(o);
-	}
-
-	@Override
-	public void SupprimerObservateur(Observateur o) {
-		observateurs.remove(o);
-	}
-
-	@Override
-	public void NotifierObservateur() {
-		for (Observateur obs : observateurs) {
-			obs.Update();
-		}
-	}
-
 }

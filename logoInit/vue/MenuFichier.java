@@ -11,7 +11,7 @@ import javax.swing.KeyStroke;
 
 import model.EnvironnementTortue;
 
-public class MenuAppli extends JMenuBar {
+public class MenuFichier extends JMenuBar {
 
 	JMenu menuFile;
 	JMenu menuCommandes;
@@ -19,7 +19,7 @@ public class MenuAppli extends JMenuBar {
 	
 	private ArrayList<JMenuItem> listButon;
 
-	public MenuAppli() {
+	public MenuFichier() {
 		
 		listButon = new ArrayList<JMenuItem>();
 		

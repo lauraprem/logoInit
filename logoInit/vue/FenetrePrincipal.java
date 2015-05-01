@@ -9,7 +9,7 @@ import model.EnvironnementTortue;
 
 public class FenetrePrincipal extends JFrame{
 
-	private MenuAppli menuAppli;
+	private MenuFichier menuAppli;
 	private MenuHaut menuHaut;
 	private MenuBas menuBas;
 
@@ -19,7 +19,7 @@ public class FenetrePrincipal extends JFrame{
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		menuAppli = new MenuAppli();
+		menuAppli = new MenuFichier();
 		setJMenuBar(menuAppli);	// on installe le menu bar
 
 		menuHaut = new MenuHaut(modele);
@@ -36,11 +36,11 @@ public class FenetrePrincipal extends JFrame{
 		setVisible(true);
 	}
 
-	public MenuAppli getMenuAppli() {
+	public MenuFichier getMenuAppli() {
 		return menuAppli;
 	}
 
-	public void setMenuAppli(MenuAppli menubar) {
+	public void setMenuAppli(MenuFichier menubar) {
 		this.menuAppli = menubar;
 	}
 
