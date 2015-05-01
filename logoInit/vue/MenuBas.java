@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import model.EnvironnementTortue;
+
 public class MenuBas extends JPanel implements Observateur {
 	
 	private ArrayList<JButton> listButon;
 	
-	public MenuBas(LayoutManager layout){
+	public MenuBas(LayoutManager layout, EnvironnementTortue model){
 		super(layout);
 		
 		listButon = new ArrayList<JButton>();

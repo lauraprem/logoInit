@@ -9,7 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import controleur.EcouteurQuitter;
+import model.EnvironnementTortue;
 
 public class MenuAppli extends JMenuBar implements Observateur {
 
@@ -19,7 +19,7 @@ public class MenuAppli extends JMenuBar implements Observateur {
 	
 	private ArrayList<JMenuItem> listButon;
 
-	public MenuAppli() {
+	public MenuAppli(EnvironnementTortue model) {
 		listButon = new ArrayList<JMenuItem>();
 		
 		menuFile = new JMenu("File"); // on installe le premier menu

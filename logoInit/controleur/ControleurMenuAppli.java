@@ -3,23 +3,28 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Tortue;
+import model.EnvironnementTortue;
 
 public class ControleurMenuAppli implements ActionListener {
 
-	private Tortue tortue;
+	private EnvironnementTortue model;
 
-	public ControleurMenuAppli(Tortue _t) {
-		tortue = _t;
+	public ControleurMenuAppli(EnvironnementTortue model) {
+		this.model = model;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
 		System.out.println("ControleurMenuAppli");
-//		if (ev.getActionCommand() == "Quitter") {
-//			System.out.println("QUITTER");
-//			System.exit(0);
-//		}
-	}
+		
+		switch (ev.getActionCommand()) {
+		case "Quitter":
+			System.out.println("QUITTER");
+			System.exit(0);
+			break;
 
+		default:
+			break;
+		}
+	}
 }

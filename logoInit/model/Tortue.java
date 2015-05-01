@@ -1,11 +1,7 @@
 package model;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.Polygon;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import vue.Observateur;
 
@@ -27,17 +23,6 @@ import vue.Observateur;
 public class Tortue implements Observable {
 
 	// ----------- Attributs statiques -----------\\
-
-	/**
-	 * Taille de la pointe de la fleche
-	 */
-	protected static final int rp = 10;
-
-	/**
-	 * Taille de la base de la fleche
-	 */
-	protected static final int rb = 5;
-
 	/**
 	 * Rapport radians/degr�s pour la conversion
 	 */
@@ -46,9 +31,65 @@ public class Tortue implements Observable {
 	// ----------- Attributs -----------\\
 
 	/**
+	 * Direction de la tortue (angle en degr�)
+	 */
+	protected int dir;
+
+	/**
+	 * true lorsque le crayon est baiss�, faux s'il est lev�. True par d�faut
+	 */
+	protected boolean crayon;
+
+	/**
+	 * Couleur du trait
+	 */
+	protected Couleur couleur;
+
+	/**
+	 * {@link Coordonnees} de la Tortue
+	 */
+	protected Point coor; // Coordonnees
+	// de la tortue
+
+	private ArrayList<Observateur> observateurs;
+
+	/**
 	 * Liste des {@link Segment} qui forment la trace de la tortue
 	 */
 	protected ArrayList<Segment> listSegments;
+
+	// ----------- Constructeur -----------\\
+	public Tortue() {
+		listSegments = new ArrayList<Segment>();
+		observateurs = new ArrayList<Observateur>();
+		reset();
+	}
+
+	// ------------ Getter && Setter ------------\\
+	public Point getCoor() {
+		return coor;
+	}
+
+	public void setCoor(Point coor) {
+		this.coor = coor;
+	}
+
+	public void setCoor(int x, int y) {
+		this.coor.x = x;
+		this.coor.y = y;
+	}
+
+	public Couleur getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(Couleur couleur) {
+		this.couleur = couleur;
+	}
+
+	public void setCouleur(int couleur) {
+		this.couleur.setCouleur(couleur);
+	}
 
 	public int getDir() {
 		return dir;
@@ -66,24 +107,6 @@ public class Tortue implements Observable {
 		this.crayon = crayon;
 	}
 
-	public static int getRp() {
-		return rp;
-	}
-
-	public static int getRb() {
-		return rb;
-	}
-
-	public static double getRatiodegrad() {
-		return ratioDegRad;
-	}
-
-	/**
-	 * {@link Coordonnees} de la Tortue
-	 */
-	protected Point coor;						// Coordonnees
-	// de la tortue
-
 	public ArrayList<Segment> getListSegments() {
 		return listSegments;
 	}
@@ -92,33 +115,11 @@ public class Tortue implements Observable {
 		this.listSegments = listSegments;
 	}
 
-	/**
-	 * Direction de la tortue (angle en degr�)
-	 */
-	protected int dir;
-
-	/**
-	 * true lorsque le crayon est baiss�, faux s'il est lev�. True par d�faut
-	 */
-	protected boolean crayon;
-
-	/**
-	 * Couleur du trait
-	 */
-	protected Couleur couleur;
-
-	private ArrayList<Observateur> observateurs;
-
-	// ----------- Constructeur -----------\\
-
-	public Tortue() {
-		listSegments = new ArrayList<Segment>();
-		observateurs = new ArrayList<Observateur>();
-		reset();
+	public static double getRatiodegrad() {
+		return ratioDegRad;
 	}
 
 	// ----------- Methodes -----------\\
-
 	public void reset() {
 		// on initialise la position de la tortue
 		coor = new Point();
@@ -132,8 +133,10 @@ public class Tortue implements Observable {
 
 	// avancer de n pas
 	public void avancer(int dist) {
-		int newX = (int) Math.round(coor.getX() + dist * Math.cos(ratioDegRad * dir));
-		int newY = (int) Math.round(coor.getY() + dist * Math.sin(ratioDegRad * dir));
+		int newX = (int) Math.round(coor.getX() + dist
+				* Math.cos(ratioDegRad * dir));
+		int newY = (int) Math.round(coor.getY() + dist
+				* Math.sin(ratioDegRad * dir));
 
 		if (crayon == true) {
 			Segment seg = new Segment();
@@ -171,8 +174,6 @@ public class Tortue implements Observable {
 		crayon = false;
 	}
 
-	// ------------ Getter && Setter ------------\\
-
 	@Override
 	public void AjoutObservateur(Observateur o) {
 		observateurs.add(o);
@@ -188,31 +189,6 @@ public class Tortue implements Observable {
 		for (Observateur obs : observateurs) {
 			obs.Update();
 		}
-	}
-
-	public Point getCoor() {
-		return coor;
-	}
-
-	public void setCoor(Point coor) {
-		this.coor = coor;
-	}
-
-	public void setCoor(int x, int y) {
-		this.coor.x = x;
-		this.coor.y = y;
-	}
-
-	public Couleur getCouleur() {
-		return couleur;
-	}
-
-	public void setCouleur(Couleur couleur) {
-		this.couleur = couleur;
-	}
-
-	public void setCouleur(int couleur) {
-		this.couleur.setCouleur(couleur);
 	}
 
 }

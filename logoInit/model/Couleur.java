@@ -13,13 +13,20 @@ public class Couleur {
 	 * une couleur représenté par un entier
 	 */
 	private int couleur;
-
+	
 	/**
-	 * construteur paramétré
-	 * @param c couleur 
+	 * une couleur représenté par un nom
 	 */
-	public Couleur(int c) {
+	private String nom;
+	
+	/**
+	 *  construteur paramétré
+	 * @param c
+	 * @param nom
+	 */
+	public Couleur(int c, String n) {
 		couleur = c;
+		nom = n;
 	}
 
 	/**
@@ -27,6 +34,7 @@ public class Couleur {
 	 */
 	public Couleur() {
 		couleur = 0;
+		nom = "";
 	}
 
 	/**
@@ -87,4 +95,16 @@ public class Couleur {
 		this.couleur = couleur;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	@Override
+	public String toString() {
+		return nom;
+	}
 }

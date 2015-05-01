@@ -11,6 +11,16 @@ import model.Segment;
 import model.Tortue;
 
 public class DessinTortue {
+	/**
+	 * Taille de la pointe de la fleche
+	 */
+	protected static final int rp = 10;
+
+	/**
+	 * Taille de la base de la fleche
+	 */
+	protected static final int rb = 5;
+	
 	private Tortue tortue;
 
 	public DessinTortue(Tortue tortue) {
@@ -39,11 +49,11 @@ public class DessinTortue {
 		// Angle de la droite
 		double theta = tortue.getRatiodegrad() * (-tortue.getDir());
 		// Demi angle au sommet du triangle
-		double alpha = Math.atan((float) tortue.getRb()
-				/ (float) tortue.getRp());
+		double alpha = Math.atan((float) rb
+				/ (float) rp);
 		// Rayon de la fleche
-		double r = Math.sqrt(tortue.getRp() * tortue.getRp() + tortue.getRb()
-				* tortue.getRb());
+		double r = Math.sqrt(rp * rp + rb
+				* rb);
 		// Sens de la fleche
 
 		// Pointe

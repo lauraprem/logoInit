@@ -3,18 +3,18 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Tortue;
+import model.EnvironnementTortue;
 
 public class ControleurMenuHaut implements ActionListener {
-	private Tortue tortue;
+	private EnvironnementTortue tortue;
 
-	public ControleurMenuHaut(Tortue _t) {
+	public ControleurMenuHaut(EnvironnementTortue _t) {
 		tortue = _t;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		System.out.println("ControleurMenuBas");
+		System.out.println("ControleurMenuHaut");
 	}
 
 }

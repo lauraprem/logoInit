@@ -3,15 +3,15 @@ package controleur;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import model.Tortue;
+import model.EnvironnementTortue;
 import vue.FenetrePrincipal;
 
 public class main {
 	
 	public static void main(String[] args) {
-		FenetrePrincipal vue= new FenetrePrincipal();
-		Tortue modele = new Tortue();
-		
+		EnvironnementTortue modele = new EnvironnementTortue();
+		FenetrePrincipal vue= new FenetrePrincipal(modele);
+
 		vue.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {

@@ -3,13 +3,13 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Tortue;
+import model.EnvironnementTortue;
 
 public class ControleurMenuBas implements ActionListener {
 
-	private Tortue tortue;
+	private EnvironnementTortue tortue;
 
-	public ControleurMenuBas(Tortue _t) {
+	public ControleurMenuBas(EnvironnementTortue _t) {
 		tortue = _t;
 	}
 

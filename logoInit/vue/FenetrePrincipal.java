@@ -5,24 +5,27 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
+import model.EnvironnementTortue;
+
 public class FenetrePrincipal extends JFrame implements Observateur {
 
 	private MenuAppli menuAppli;
 	private MenuHaut menuHaut;
 	private MenuBas menuBas;
+	private EnvironnementTortue modele;
 
-	public FenetrePrincipal() {
+	public FenetrePrincipal(EnvironnementTortue modele) {
 		super("un logo tout simple");
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		menuAppli = new MenuAppli();
+		menuAppli = new MenuAppli(modele);
 		setJMenuBar(menuAppli);	// on installe le menu bar
 
-		menuHaut = new MenuHaut();
+		menuHaut = new MenuHaut(modele);
 		getContentPane().add(menuHaut, "North");
 
-		menuBas = new MenuBas(new GridLayout());
+		menuBas = new MenuBas(new GridLayout(),modele);
 		getContentPane().add(menuBas, "South");
 
 		FeuilleDessin feuille = new FeuilleDessin();
@@ -60,6 +63,5 @@ public class FenetrePrincipal extends JFrame implements Observateur {
 	@Override
 	public void Update() {
 		// TODO Auto-generated method stub
-
 	}
 }
