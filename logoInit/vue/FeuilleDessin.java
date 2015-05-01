@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
+import model.EnvironnementTortue;
 import model.Tortue;
 
 /**
@@ -25,7 +26,7 @@ public class FeuilleDessin extends JPanel implements Observateur {
 	private Tortue tortue;
 	private DessinTortue dessinTortue;
 	
-	public FeuilleDessin() {
+	public FeuilleDessin(EnvironnementTortue modele) {
 		this.setBackground(Color.white);
 		this.setSize(new Dimension(600, 400));
 		this.setPreferredSize(new Dimension(600, 400));
@@ -34,9 +35,9 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		
 		// Deplacement de la tortue au centre de la feuille
 		tortue = new Tortue();
-		tortue.setCoor(500 / 2, 400 / 2);
-		dessinTortue = new DessinTortue(tortue);
-		tortues.add(tortue);
+		
+		dessinTortue = new DessinTortue(modele.getTortue());
+		tortues.add(modele.getTortue());
 		
 	}
 
@@ -78,7 +79,8 @@ public class FeuilleDessin extends JPanel implements Observateur {
 
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
-		
+		// TODO
+		repaint();
+		System.out.println("Update Dessin");
 	}
 }

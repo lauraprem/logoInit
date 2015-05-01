@@ -2,13 +2,18 @@ package model;
 
 import java.util.ArrayList;
 
-public class EnvironnementTortue {
+import vue.Observateur;
+
+public class EnvironnementTortue implements Observable{
 	private Tortue tortue;
 	private Couleur couleurCourante;
 	private int dis;
 	private ArrayList<Couleur> listCouleur;
 	
+	private ArrayList<Observateur> observateurs;
+
 	public EnvironnementTortue() {
+		observateurs= new ArrayList<Observateur>();
 		listCouleur = new ArrayList<Couleur>();
 		this.initDefautCouleurs();
 
@@ -16,7 +21,7 @@ public class EnvironnementTortue {
 
 		tortue = new Tortue();
 	}
-	
+
 	public Tortue getTortue() {
 		return tortue;
 	}
@@ -72,5 +77,47 @@ public class EnvironnementTortue {
 		}
 
 		return tabColorStrings;
+	}
+
+	public void avancerTortue() {
+		tortue.avancer(dis);
+		this.NotifierObservateur();
+	}
+
+	public void tournerDroiteTortue() {
+		tortue.droite(dis);
+		this.NotifierObservateur();
+	}
+
+	public void tournerGaucheTortue() {
+		tortue.gauche(dis);
+		this.NotifierObservateur();
+	}
+
+	public void baisser() {
+		tortue.baisserCrayon();
+		this.NotifierObservateur();
+	}
+
+	public void monter() {
+		tortue.leverCrayon();
+		this.NotifierObservateur();
+	}
+
+	@Override
+	public void AjoutObservateur(Observateur o) {
+		observateurs.add(o);
+	}
+
+	@Override
+	public void SupprimerObservateur(Observateur o) {
+		observateurs.remove(o);
+	}
+
+	@Override
+	public void NotifierObservateur() {
+		for (Observateur obs : observateurs) {
+			obs.Update();
+		}
 	}
 }

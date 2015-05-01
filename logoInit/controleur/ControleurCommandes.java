@@ -5,28 +5,22 @@ import java.awt.event.ActionListener;
 
 import model.EnvironnementTortue;
 
-public class ControleurMenuAppli implements ActionListener {
+public class ControleurCommandes implements ActionListener {
 
 	private EnvironnementTortue model;
 
-	public ControleurMenuAppli(EnvironnementTortue model) {
+	public ControleurCommandes(EnvironnementTortue model) {
 		this.model = model;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		System.out.println("ControleurMenuAppli");
+		System.out.println("ControleurCommandes");
 		
 		switch (ev.getActionCommand()) {
-		case "Quitter":
-			System.out.println("QUITTER");
-			System.exit(0);
-			break;
-			
 		case "Avancer":
-			System.out.println("Avancer");
 			model.avancerTortue();
-			break;
+			break;	
 
 		default:
 			break;

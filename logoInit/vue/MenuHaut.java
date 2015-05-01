@@ -25,19 +25,20 @@ public class MenuHaut extends JPanel implements Observateur {
 
 	private ArrayList<JButton> listButon;
 	private ArrayList<JComboBox> comboBox;
-	
 
 	public MenuHaut(EnvironnementTortue model) {
+		model.AjoutObservateur(this);
+
 		listButon = new ArrayList<JButton>();
 		comboBox = new ArrayList<JComboBox>();
 
 		JToolBar toolBar = new JToolBar();
-		
 
 		addButton(toolBar, "Effacer", "Nouveau dessin", "/icons/index.png");
-		
+
 		toolBar.add(Box.createRigidArea(HGAP));
-		JTextField inputValue = new JTextField(Integer.toString(model.getDis()), 5);
+		JTextField inputValue = new JTextField(
+				Integer.toString(model.getDis()), 5);
 		toolBar.add(inputValue);
 		this.add(toolBar);
 		addButton(toolBar, "Avancer", "Avancer 50", null);
@@ -53,14 +54,6 @@ public class MenuHaut extends JPanel implements Observateur {
 		toolBar.add(colorList);
 
 		comboBox.add(colorList);
-
-//		 colorList.addActionListener(new ActionListener() {
-//		 public void actionPerformed(ActionEvent e) {
-//		 JComboBox cb = (JComboBox) e.getSource();
-//		 int n = cb.getSelectedIndex();
-////		  courante.setColor(n);
-//		 }
-//		 });
 	}
 
 	public ArrayList<JButton> getListButon() {
@@ -103,7 +96,7 @@ public class MenuHaut extends JPanel implements Observateur {
 
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
-
+		// TODO
+		System.out.println("Update MenuHaut");
 	}
 }

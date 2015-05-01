@@ -20,6 +20,9 @@ public class MenuAppli extends JMenuBar implements Observateur {
 	private ArrayList<JMenuItem> listButon;
 
 	public MenuAppli(EnvironnementTortue model) {
+		
+		model.AjoutObservateur(this);
+		
 		listButon = new ArrayList<JMenuItem>();
 		
 		menuFile = new JMenu("File"); // on installe le premier menu
@@ -68,6 +71,7 @@ public class MenuAppli extends JMenuBar implements Observateur {
 
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
+		// TODO
+		System.out.println("Menu Appli");
 	}
 }

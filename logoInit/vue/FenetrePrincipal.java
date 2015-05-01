@@ -12,10 +12,12 @@ public class FenetrePrincipal extends JFrame implements Observateur {
 	private MenuAppli menuAppli;
 	private MenuHaut menuHaut;
 	private MenuBas menuBas;
-	private EnvironnementTortue modele;
 
 	public FenetrePrincipal(EnvironnementTortue modele) {
 		super("un logo tout simple");
+		
+		modele.AjoutObservateur(this);
+		
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -28,7 +30,7 @@ public class FenetrePrincipal extends JFrame implements Observateur {
 		menuBas = new MenuBas(new GridLayout(),modele);
 		getContentPane().add(menuBas, "South");
 
-		FeuilleDessin feuille = new FeuilleDessin();
+		FeuilleDessin feuille = new FeuilleDessin(modele);
 
 		getContentPane().add(feuille, "Center");
 
@@ -62,6 +64,7 @@ public class FenetrePrincipal extends JFrame implements Observateur {
 
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
+		// TODO
+		System.out.println("Update Principale");
 	}
 }

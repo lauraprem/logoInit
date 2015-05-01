@@ -22,9 +22,6 @@ public class main {
 		vue.setVisible(true);
 
 		ControleurPrincipal controleurPrincipal = new ControleurPrincipal(modele, vue);
-
-		
-		
 	}
 
 	

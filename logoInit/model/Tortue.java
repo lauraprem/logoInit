@@ -122,7 +122,7 @@ public class Tortue implements Observable {
 	// ----------- Methodes -----------\\
 	public void reset() {
 		// on initialise la position de la tortue
-		coor = new Point();
+		coor = new Point(500 / 2, 400 / 2);
 		dir = -90;
 		couleur = new Couleur();
 		crayon = true;

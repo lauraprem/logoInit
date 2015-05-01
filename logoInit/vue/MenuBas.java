@@ -15,6 +15,8 @@ public class MenuBas extends JPanel implements Observateur {
 	public MenuBas(LayoutManager layout, EnvironnementTortue model){
 		super(layout);
 		
+		model.AjoutObservateur(this);
+		
 		listButon = new ArrayList<JButton>();
 		
 		JButton b20 = new JButton("Proc1");
@@ -38,7 +40,7 @@ public class MenuBas extends JPanel implements Observateur {
 
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
-		
+		// TODO
+		System.out.println("Update MenuBas");
 	}
 }
