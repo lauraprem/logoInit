@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import vue.Observateur;
 
 public class EnvironnementTortue implements Observable {
-	private TortueFormesPredefinies tortueCourante;
+	private int tortueCourante;
 	private int dis;
 	private ArrayList<Couleur> listCouleur;
 
@@ -13,22 +13,25 @@ public class EnvironnementTortue implements Observable {
 
 	private ArrayList<TortueFormesPredefinies> tortues;
 
+	
+	
 	public EnvironnementTortue() {
 		observateurs = new ArrayList<Observateur>();
 		listCouleur = new ArrayList<Couleur>();
 		tortues = new ArrayList<TortueFormesPredefinies>();
+		tortues.add(new TortueFormesPredefinies());
 		this.initDefautCouleurs();
 		
 		dis = 45;
 
-		tortueCourante = new TortueFormesPredefinies();
+		tortueCourante = 0;
 	}
 
-	public Tortue getTortueCourante() {
+	public int getTortueCourante() {
 		return tortueCourante;
 	}
 
-	public void setTortueCourante(TortueFormesPredefinies tortue) {
+	public void setTortueCourante(int tortue) {
 		this.tortueCourante = tortue;
 	}
 
@@ -60,9 +63,10 @@ public class EnvironnementTortue implements Observable {
 		this.tortues = tortues;
 		this.NotifierObservateur();
 	}
-
-	public void ajouteTortue(TortueFormesPredefinies t){
-		this.tortues.add(t);
+	
+	
+	public void ajouteTortue(int n){
+		this.tortues.add(new TortueFormesPredefinies(n));
 		this.NotifierObservateur();
 	}
 	
@@ -89,52 +93,52 @@ public class EnvironnementTortue implements Observable {
 	}
 
 	public void proc1() {
-		tortueCourante.carre();
+		tortues.get(tortueCourante).carre();
 		this.NotifierObservateur();
 	}
 
 	public void proc2() {
-		tortueCourante.poly(60, 8);
+		tortues.get(tortueCourante).poly(60, 8);
 		this.NotifierObservateur();
 	}
 
 	public void proc3() {
-		tortueCourante.spiral(50, 40, 6);
+		tortues.get(tortueCourante).spiral(50, 40, 6);
 		this.NotifierObservateur();
 	}
 
 	public void setCouleur(int couleur) {
-		tortueCourante.setCouleur(couleur);
+		tortues.get(tortueCourante).setCouleur(couleur);
 		this.NotifierObservateur();
 	}
 
 	public void reset() {
-		tortueCourante.reset();
+		tortues.get(tortueCourante).reset();
 		this.NotifierObservateur();
 	}
 
 	public void avancerTortue() {
-		tortueCourante.avancer(dis);
+		tortues.get(tortueCourante).avancer(dis);
 		this.NotifierObservateur();
 	}
 
 	public void tournerDroiteTortue() {
-		tortueCourante.droite(dis);
+		tortues.get(tortueCourante).droite(dis);
 		this.NotifierObservateur();
 	}
 
 	public void tournerGaucheTortue() {
-		tortueCourante.gauche(dis);
+		tortues.get(tortueCourante).gauche(dis);
 		this.NotifierObservateur();
 	}
 
 	public void baisser() {
-		tortueCourante.baisserCrayon();
+		tortues.get(tortueCourante).baisserCrayon();
 		this.NotifierObservateur();
 	}
 
 	public void monter() {
-		tortueCourante.leverCrayon();
+		tortues.get(tortueCourante).leverCrayon();
 		this.NotifierObservateur();
 	}
 
