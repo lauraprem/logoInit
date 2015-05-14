@@ -20,12 +20,10 @@ public class DessinTortue {
 	 * Taille de la base de la fleche
 	 */
 	protected static final int rb = 5;
-	
-	private Tortue tortue;
 
-	public DessinTortue(Tortue tortue) {
+	public DessinTortue(){
 		super();
-		this.tortue = tortue;
+//		this.tortue = tortue;
 	}
 
 	public static void drawTurtle(Graphics graph,Tortue tortue) {

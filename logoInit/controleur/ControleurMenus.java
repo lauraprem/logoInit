@@ -26,7 +26,7 @@ public class ControleurMenus implements ActionListener {
 		case "Effacer":
 			model.reset();
 			break;
-		case "Ajout tortue":
+		case "Tortue":
 			int n = vue.getMenuHaut().getComboBox().get(0).getSelectedIndex();
 			model.ajouteTortue(n);
 			break;

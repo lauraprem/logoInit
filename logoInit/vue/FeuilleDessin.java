@@ -27,13 +27,14 @@ public class FeuilleDessin extends JPanel implements Observateur {
 	private EnvironnementTortue modele;
 	
 	public FeuilleDessin(EnvironnementTortue modele) {
-		modele.AjoutObservateur(this);
+		this.modele = modele;
+		this.modele.AjoutObservateur(this);
 		
 		this.setBackground(Color.white);
 		this.setSize(new Dimension(600, 400));
 		this.setPreferredSize(new Dimension(600, 400));
 		
-		this.modele = modele;
+		
 
 //		tortues = new ArrayList<Tortue>();
 		
@@ -62,7 +63,6 @@ public class FeuilleDessin extends JPanel implements Observateur {
 	public void showTurtles(Graphics g) {
 		for(Iterator it = modele.getTortues().iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-//			DessinTortue dessinTortue = new DessinTortue(t);
 			DessinTortue.drawTurtle(g, t);
 		}
 	}
