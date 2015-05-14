@@ -58,14 +58,17 @@ public class EnvironnementTortue implements Observable {
 
 	public void setTortues(ArrayList<TortueFormesPredefinies> tortues) {
 		this.tortues = tortues;
+		this.NotifierObservateur();
 	}
 
 	public void ajouteTortue(TortueFormesPredefinies t){
 		this.tortues.add(t);
+		this.NotifierObservateur();
 	}
 	
 	public void suprimeTortue(TortueFormesPredefinies t){
 		this.tortues.remove(t);
+		this.NotifierObservateur();
 	}
 	
 	public void initDefautCouleurs() {
