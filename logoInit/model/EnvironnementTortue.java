@@ -4,29 +4,32 @@ import java.util.ArrayList;
 
 import vue.Observateur;
 
-public class EnvironnementTortue implements Observable{
-	private TortueFromesPredefinies tortue;
+public class EnvironnementTortue implements Observable {
+	private TortueFormesPredefinies tortueCourante;
 	private int dis;
 	private ArrayList<Couleur> listCouleur;
-	
+
 	private ArrayList<Observateur> observateurs;
 
-	public EnvironnementTortue() {
-		observateurs= new ArrayList<Observateur>();
-		listCouleur = new ArrayList<Couleur>();
-		this.initDefautCouleurs();
+	private ArrayList<TortueFormesPredefinies> tortues;
 
+	public EnvironnementTortue() {
+		observateurs = new ArrayList<Observateur>();
+		listCouleur = new ArrayList<Couleur>();
+		tortues = new ArrayList<TortueFormesPredefinies>();
+		this.initDefautCouleurs();
+		
 		dis = 45;
 
-		tortue = new TortueFromesPredefinies();
+		tortueCourante = new TortueFormesPredefinies();
 	}
 
-	public Tortue getTortue() {
-		return tortue;
+	public Tortue getTortueCourante() {
+		return tortueCourante;
 	}
 
-	public void setTortue(TortueFromesPredefinies tortue) {
-		this.tortue = tortue;
+	public void setTortueCourante(TortueFormesPredefinies tortue) {
+		this.tortueCourante = tortue;
 	}
 
 	public ArrayList<Couleur> getListCouleur() {
@@ -48,11 +51,25 @@ public class EnvironnementTortue implements Observable{
 	public void setDis(int dis) {
 		this.dis = dis;
 	}
+	
+	public ArrayList<TortueFormesPredefinies> getTortues() {
+		return tortues;
+	}
 
+	public void setTortues(ArrayList<TortueFormesPredefinies> tortues) {
+		this.tortues = tortues;
+	}
+
+	public void ajouteTortue(TortueFormesPredefinies t){
+		this.tortues.add(t);
+	}
+	
+	public void suprimeTortue(TortueFormesPredefinies t){
+		this.tortues.remove(t);
+	}
+	
 	public void initDefautCouleurs() {
-		String[] colorStrings = { "noir", "bleu", "cyan", "gris fonce",
-				"rouge", "vert", "gris clair", "magenta", "orange", "gris",
-				"rose", "jaune" };
+		String[] colorStrings = { "noir", "bleu", "cyan", "gris fonce", "rouge", "vert", "gris clair", "magenta", "orange", "gris", "rose", "jaune" };
 
 		for (int i = 0; i < colorStrings.length; i++) {
 			listCouleur.add(new Couleur(i, colorStrings[i]));
@@ -67,53 +84,54 @@ public class EnvironnementTortue implements Observable{
 
 		return tabColorStrings;
 	}
+
 	public void proc1() {
-		tortue.carre();
+		tortueCourante.carre();
 		this.NotifierObservateur();
 	}
 
 	public void proc2() {
-		tortue.poly(60, 8);
+		tortueCourante.poly(60, 8);
 		this.NotifierObservateur();
 	}
 
 	public void proc3() {
-		tortue.spiral(50, 40, 6);
+		tortueCourante.spiral(50, 40, 6);
 		this.NotifierObservateur();
 	}
-	
+
 	public void setCouleur(int couleur) {
-		tortue.setCouleur(couleur);
+		tortueCourante.setCouleur(couleur);
 		this.NotifierObservateur();
 	}
-	
+
 	public void reset() {
-		tortue.reset();
+		tortueCourante.reset();
 		this.NotifierObservateur();
 	}
 
 	public void avancerTortue() {
-		tortue.avancer(dis);
+		tortueCourante.avancer(dis);
 		this.NotifierObservateur();
 	}
 
 	public void tournerDroiteTortue() {
-		tortue.droite(dis);
+		tortueCourante.droite(dis);
 		this.NotifierObservateur();
 	}
 
 	public void tournerGaucheTortue() {
-		tortue.gauche(dis);
+		tortueCourante.gauche(dis);
 		this.NotifierObservateur();
 	}
 
 	public void baisser() {
-		tortue.baisserCrayon();
+		tortueCourante.baisserCrayon();
 		this.NotifierObservateur();
 	}
 
 	public void monter() {
-		tortue.leverCrayon();
+		tortueCourante.leverCrayon();
 		this.NotifierObservateur();
 	}
 

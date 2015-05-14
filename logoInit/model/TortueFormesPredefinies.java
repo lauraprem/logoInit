@@ -1,8 +1,8 @@
 package model;
 
-public class TortueFromesPredefinies extends Tortue {
+public class TortueFormesPredefinies extends Tortue {
 
-	public TortueFromesPredefinies() {
+	public TortueFormesPredefinies() {
 		super();
 	}
 
