@@ -22,8 +22,9 @@ import model.Tortue;
  */
 
 public class FeuilleDessin extends JPanel implements Observateur {
-	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
-	private DessinTortue dessinTortue;
+//	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
+//	private DessinTortue dessinTortue;
+	private EnvironnementTortue modele;
 	
 	public FeuilleDessin(EnvironnementTortue modele) {
 		modele.AjoutObservateur(this);
@@ -31,17 +32,19 @@ public class FeuilleDessin extends JPanel implements Observateur {
 		this.setBackground(Color.white);
 		this.setSize(new Dimension(600, 400));
 		this.setPreferredSize(new Dimension(600, 400));
-
-		tortues = new ArrayList<Tortue>();
 		
-		dessinTortue = new DessinTortue(modele.getTortue());
-		tortues.add(modele.getTortue());
+		this.modele = modele;
+
+//		tortues = new ArrayList<Tortue>();
+		
+//		dessinTortue = new DessinTortue(modele.getTortueCourante());
+//		tortues.add(modele.getTortueCourante());
 		
 	}
 
-	public void addTortue(Tortue o) {
-		tortues.add(o);
-	}
+//	public void addTortue(Tortue o) {
+//		tortues.add(o);
+//	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -57,10 +60,10 @@ public class FeuilleDessin extends JPanel implements Observateur {
 	}
 	
 	public void showTurtles(Graphics g) {
-		for(Iterator it = tortues.iterator();it.hasNext();) {
+		for(Iterator it = modele.getTortues().iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-			
-			dessinTortue.drawTurtle(g);
+//			DessinTortue dessinTortue = new DessinTortue(t);
+			DessinTortue.drawTurtle(g, t);
 		}
 	}
 

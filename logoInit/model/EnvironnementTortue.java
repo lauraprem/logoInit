@@ -63,8 +63,7 @@ public class EnvironnementTortue implements Observable {
 		this.tortues = tortues;
 		this.NotifierObservateur();
 	}
-	
-	
+
 	public void ajouteTortue(int n){
 		this.tortues.add(new TortueFormesPredefinies(n));
 		this.NotifierObservateur();

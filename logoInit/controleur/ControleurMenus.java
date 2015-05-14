@@ -28,7 +28,7 @@ public class ControleurMenus implements ActionListener {
 			break;
 		case "Ajout tortue":
 			int n = vue.getMenuHaut().getComboBox().get(0).getSelectedIndex();
-			model.ajouteTortue(new TortueFormesPredefinies(n));
+			model.ajouteTortue(n);
 			break;
 		case "Avancer":
 			this.setVitesse();
