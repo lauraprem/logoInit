@@ -5,6 +5,10 @@ public class TortueFormesPredefinies extends Tortue {
 	public TortueFormesPredefinies() {
 		super();
 	}
+	
+	public TortueFormesPredefinies(int couleur){
+		super(couleur);
+	}
 
 	public void carre() {
 		for (int i = 0; i < 4; i++) {
@@ -22,7 +26,7 @@ public class TortueFormesPredefinies extends Tortue {
 
 	public void spiral(int n, int k, int a) {
 		for (int i = 0; i < k; i++) {
-			couleur.couleurSuivante();
+			couleurTrait.couleurSuivante();
 			avancer(n);
 			droite(360 / a);
 			n = n + 1;

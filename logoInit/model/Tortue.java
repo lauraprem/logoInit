@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
@@ -44,7 +43,12 @@ public class Tortue {
 	/**
 	 * Couleur du trait
 	 */
-	protected Couleur couleur;
+	protected Couleur couleurTrait;
+	
+	/**
+	 * Couleur de la tortue
+	 */
+	protected Couleur couleurTortue;
 
 	/**
 	 * {@link Coordonnees} de la Tortue
@@ -65,6 +69,13 @@ public class Tortue {
 		observateurs = new ArrayList<Observateur>();
 		reset();
 	}
+	
+	public Tortue(int couleur) {
+		listSegments = new ArrayList<Segment>();
+		observateurs = new ArrayList<Observateur>();
+		reset();
+		couleurTortue = new Couleur(couleur);
+	}
 
 	// ------------ Getter && Setter ------------\\
 	public Point getCoor() {
@@ -80,16 +91,8 @@ public class Tortue {
 		this.coor.y = y;
 	}
 
-	public Couleur getCouleur() {
-		return couleur;
-	}
-
-	public void setCouleur(Couleur couleur) {
-		this.couleur = couleur;
-	}
-
 	public void setCouleur(int couleur) {
-		this.couleur.setIdCouleur(couleur);
+		this.couleurTrait.setIdCouleur(couleur);
 	}
 
 	public int getDir() {
@@ -119,13 +122,30 @@ public class Tortue {
 	public static double getRatiodegrad() {
 		return ratioDegRad;
 	}
+	
+	public Couleur getCouleurTrait() {
+		return couleurTrait;
+	}
+
+	public void setCouleurTrait(Couleur couleurTrait) {
+		this.couleurTrait = couleurTrait;
+	}
+
+	public Couleur getCouleurTortue() {
+		return couleurTortue;
+	}
+
+	public void setCouleurTortue(Couleur couleurTortue) {
+		this.couleurTortue = couleurTortue;
+	}
 
 	// ----------- Methodes -----------\\
 	public void reset() {
 		// on initialise la position de la tortue
 		coor = new Point(500 / 2, 400 / 2);
 		dir = -90;
-		couleur = new Couleur();
+		couleurTrait = new Couleur();
+		couleurTortue = new Couleur(5);
 		crayon = true;
 		listSegments.clear();
 	}
@@ -146,7 +166,7 @@ public class Tortue {
 			seg.getPtStart().y = coor.y;
 			seg.getPtEnd().x = newX;
 			seg.getPtEnd().y = newY;
-			seg.setColor(couleur.decodeColor());
+			seg.setColor(couleurTrait.decodeColor());
 
 			listSegments.add(seg);
 		}
