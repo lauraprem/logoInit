@@ -3,9 +3,8 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComboBox;
-
 import model.EnvironnementTortue;
+import model.TortueFormesPredefinies;
 import vue.FenetrePrincipal;
 
 public class ControleurMenus implements ActionListener {
@@ -28,8 +27,10 @@ public class ControleurMenus implements ActionListener {
 			model.reset();
 			break;
 		case "Ajout tortue":
-			// TODO model
 			int n = vue.getMenuHaut().getComboBox().get(0).getSelectedIndex();
+			TortueFormesPredefinies t = new TortueFormesPredefinies();
+			t.setCouleur(n);
+			model.ajouteTortue(t);
 			break;
 		case "Avancer":
 			this.setVitesse();
