@@ -15,6 +15,7 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue {
 		TortueAmelioree t = new TortueAmelioree(couleur);
 		this.tortues.add(t);
 		setTortueCourante(tortues.indexOf(t), couleur);
+		ajouterTortuesConnues(t);
 		this.NotifierObservateur();
 	}
 
@@ -22,6 +23,7 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue {
 		TortueAmelioree t = new TortueAmelioree(couleur, name);
 		this.tortues.add(t);
 		setTortueCourante(tortues.indexOf(t), couleur);
+		ajouterTortuesConnues(t);
 		this.NotifierObservateur();
 	}
 
