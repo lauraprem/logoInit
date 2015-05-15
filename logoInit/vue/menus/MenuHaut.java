@@ -23,16 +23,17 @@ public class MenuHaut extends JPanel{
 	public static final Dimension VGAP = new Dimension(1, 5);
 	public static final Dimension HGAP = new Dimension(5, 1);
 
-	private ArrayList<JButton> listButon;
-	private ArrayList<JComboBox> comboBox;
-	private JTextField inputValue;
+	protected ArrayList<JButton> listButon;
+	protected ArrayList<JComboBox> comboBox;
+	protected JTextField inputValue;
+	protected JToolBar toolBar;
 
 	public MenuHaut(EnvironnementTortue model) {
 
 		listButon = new ArrayList<JButton>();
 		comboBox = new ArrayList<JComboBox>();
 
-		JToolBar toolBar = new JToolBar();
+		toolBar = new JToolBar();
 
 		addButton(toolBar, "Effacer", "Nouveau dessin", "/icons/index.png");
 		addButton(toolBar, "Tortue", "Ajout tortue", null);
@@ -56,7 +57,6 @@ public class MenuHaut extends JPanel{
 
 		comboBox.add(colorList);
 	}
-	
 
 	public JTextField getInputValue() {
 		return inputValue;

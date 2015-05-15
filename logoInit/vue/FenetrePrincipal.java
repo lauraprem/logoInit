@@ -28,17 +28,16 @@ public class FenetrePrincipal extends JFrame{
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		menuAppli = new MenuFichier();
+		creerMenuFichier();
 		setJMenuBar(menuAppli);	// on installe le menu bar
 
-		menuHaut = new MenuHaut(modele);
+		creerMenuHaut();
 		getContentPane().add(menuHaut, "North");
 
-		menuBas = new MenuBas(new GridLayout());
+		creerMenuBas();
 		getContentPane().add(menuBas, "South");
 		
 		creerFeuilleDessin();
-		
 		getContentPane().add(feuille, "Center");
 
 		pack();
@@ -75,6 +74,18 @@ public class FenetrePrincipal extends JFrame{
 
 	public void setFeuille(FeuilleDessin feuille) {
 		this.feuille = feuille;
+	}
+	
+	protected void creerMenuFichier() {
+		menuAppli = new MenuFichier();
+	}
+	
+	protected void creerMenuHaut() {
+		menuHaut = new MenuHaut(modele);
+	}
+	
+	protected void creerMenuBas() {
+		menuBas = new MenuBas(new GridLayout());
 	}
 	
 	protected void creerFeuilleDessin() {
