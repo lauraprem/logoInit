@@ -31,8 +31,9 @@ public class EnvironnementTortue implements Observable {
 		return tortueCourante;
 	}
 
-	public void setTortueCourante(int tortue) {
+	public void setTortueCourante(int tortue, int couleur) {
 		this.tortueCourante = tortue;
+		this.tortues.get(tortueCourante).setCouleurTrait(new Couleur(couleur));
 		this.NotifierObservateur();
 	}
 
@@ -69,9 +70,10 @@ public class EnvironnementTortue implements Observable {
 	}
 	
 	
-	public void ajouteTortue(TortueFormesPredefinies t){
+	public void ajouteTortue(int n){
+		TortueFormesPredefinies t = new TortueFormesPredefinies(n);
 		this.tortues.add(t);
-		setTortueCourante(tortues.indexOf(t));
+		setTortueCourante(tortues.indexOf(t),n);
 		this.NotifierObservateur();
 	}
 	

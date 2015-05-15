@@ -149,7 +149,13 @@ public class Tortue {
 		crayon = true;
 		listSegments.clear();
 	}
-
+	
+	
+    public double calculDistanceEntreTortue(Tortue t) {
+        double calc;
+        calc = Math.sqrt(Math.pow(this.getCoor().getX() - t.getCoor().getX(), 2) + Math.pow(this.getCoor().getY() - t.getCoor().getY(), 2));
+        return calc;
+    }
 	/** les procedures de base de fonctionnement de la tortue */
 
 	// avancer de n pas
@@ -194,4 +200,8 @@ public class Tortue {
 	public void leverCrayon() {
 		crayon = false;
 	}
+	
+    public boolean equals(Tortue obj) {
+        return this.getCoor().getX()==obj.getCoor().getX() && getCoor().getY()==obj.getCoor().getY() && dir == obj.getDir() && crayon==obj.isCrayon() && couleurTortue==obj.getCouleurTortue();
+    }
 }
