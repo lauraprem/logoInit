@@ -32,8 +32,8 @@ public class ControleurPrincipal {
 			boutton.addActionListener(new ControleurProc(modele));
 		}
 		
-		//Listeners des vues
-        vue.getFeuille().addMouseListener(new ControleurSouris(modele));
+		//Listeners sur le feuille
+        vue.getFeuille().addMouseListener(new ControleurSouris(modele,vue));
 
 	}
 }
