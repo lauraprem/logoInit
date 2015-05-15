@@ -31,6 +31,9 @@ public class ControleurPrincipal {
 		for (JButton boutton : vue.getMenuBas().getListButon()) {
 			boutton.addActionListener(new ControleurProc(modele));
 		}
+		
+		//Listeners des vues
+        vue.getFeuille().addMouseListener(new ControleurSouris(modele));
 
 	}
 }

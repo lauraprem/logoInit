@@ -1,16 +1,15 @@
 package vue;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 import model.Segment;
 import model.Tortue;
 
-public class DessinTortue {
+public class DessinTortue{
 	/**
 	 * Taille de la pointe de la fleche
 	 */
@@ -21,14 +20,14 @@ public class DessinTortue {
 	 */
 	protected static final int rb = 5;
 	
-	private Tortue tortue;
+//	private Tortue tortue;
 
-	public DessinTortue(Tortue tortue) {
+	public DessinTortue(){
 		super();
-		this.tortue = tortue;
+//		this.tortue = tortue;
 	}
 
-	public void drawTurtle(Graphics graph) {
+	public static void drawTurtle(Graphics graph,Tortue tortue) {
 		if (graph == null) {
 			return;
 		}
@@ -72,7 +71,15 @@ public class DessinTortue {
 				(int) Math.round(p2.y + r * Math.sin(theta - alpha)));
 
 		arrow.addPoint(p2.x, p2.y);
-		graph.setColor(Color.green);
+		graph.setColor(tortue.getCouleurTortue().decodeColor());
 		graph.fillPolygon(arrow);
+	}
+
+	public static int getRp() {
+		return rp;
+	}
+
+	public static int getRb() {
+		return rb;
 	}
 }
