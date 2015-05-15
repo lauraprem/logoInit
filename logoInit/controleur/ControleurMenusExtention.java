@@ -17,6 +17,7 @@ public class ControleurMenusExtention extends ControleurMenus {
 		int n = vue.getMenuHaut().getComboBox().get(0).getSelectedIndex();
 		MenuHautExtension menu = (MenuHautExtension)(vue.getMenuHaut());
 		String nom = menu.getStringValue().getText();
+		System.out.println(nom);
 		((EnvironnementTortuesAmeliorees) model).ajouteTortue(n,nom);
 	}
 }

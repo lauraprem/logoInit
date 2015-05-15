@@ -23,7 +23,7 @@ public class mainExtension {
 		});
 		vue.setVisible(true);
 
-		ControleurPrincipal controleurPrincipal = new ControleurPrincipal(modele, vue);
+		ControleurPrincipalExtension controleurPrincipal = new ControleurPrincipalExtension(modele, vue);
 	}
 
 	
