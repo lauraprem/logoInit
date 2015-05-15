@@ -33,5 +33,12 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue{
 		getTortue(tortue).setName(name);
 		this.NotifierObservateur();
 	}
-	
+
+	@Override
+	public void avancerTortue() {
+		getTortue(tortueCourante).avancer(dis);
+		getTortue(tortueCourante).bonjour();
+		this.NotifierObservateur();
+	}
+
 }
