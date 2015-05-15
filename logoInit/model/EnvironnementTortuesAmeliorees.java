@@ -11,13 +11,20 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue{
 	}
 
 	@Override
-	public void ajouteTortue(int n) {
-		TortueAmelioree t = new TortueAmelioree(n);
+	public void ajouteTortue(int couleur) {
+		TortueAmelioree t = new TortueAmelioree(couleur);
 		this.tortues.add(t);
-		setTortueCourante(tortues.indexOf(t), n);
+		setTortueCourante(tortues.indexOf(t), couleur);
 		this.NotifierObservateur();
 	}
 
+	public void ajouteTortue(int couleur, String name){
+		TortueAmelioree t = new TortueAmelioree(couleur, name);
+		this.tortues.add(t);
+		setTortueCourante(tortues.indexOf(t), couleur);
+		this.NotifierObservateur();
+	}
+	
 	public TortueAmelioree getTortue(int indexTortue){
 		return (TortueAmelioree)this.getTortues().get(indexTortue);
 	}
