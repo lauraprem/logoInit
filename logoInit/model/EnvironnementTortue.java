@@ -5,27 +5,29 @@ import java.util.ArrayList;
 import vue.Observateur;
 
 public class EnvironnementTortue implements Observable {
-	private int tortueCourante;
-	private int dis;
-	private ArrayList<Couleur> listCouleur;
+	protected int tortueCourante;
+	protected int dis;
+	protected ArrayList<Couleur> listCouleur;
 
-	private ArrayList<Observateur> observateurs;
+	protected ArrayList<Observateur> observateurs;
 
-	private ArrayList<TortueFormesPredefinies> tortues;
+	protected ArrayList<TortueFormesPredefinies> tortues;
 
-	
-	
 	public EnvironnementTortue() {
 		observateurs = new ArrayList<Observateur>();
 		listCouleur = new ArrayList<Couleur>();
-		tortues = new ArrayList<TortueFormesPredefinies>();
-		tortues.add(new TortueFormesPredefinies());
+		creerTortues();
 		this.initDefautCouleurs();
-		
 		dis = 45;
 
 		tortueCourante = 0;
 	}
+
+	protected void creerTortues() {
+		tortues = new ArrayList<TortueFormesPredefinies>();
+		tortues.add(new TortueFormesPredefinies());
+	}
+
 
 	public int getTortueCourante() {
 		return tortueCourante;
@@ -59,7 +61,7 @@ public class EnvironnementTortue implements Observable {
 		this.dis = dis;
 		this.NotifierObservateur();
 	}
-	
+
 	public ArrayList<TortueFormesPredefinies> getTortues() {
 		return tortues;
 	}
@@ -68,19 +70,19 @@ public class EnvironnementTortue implements Observable {
 		this.tortues = tortues;
 		this.NotifierObservateur();
 	}
-	
-	public void ajouteTortue(int n){
+
+	public void ajouteTortue(int n) {
 		TortueFormesPredefinies t = new TortueFormesPredefinies(n);
 		this.tortues.add(t);
-		setTortueCourante(tortues.indexOf(t),n);
+		setTortueCourante(tortues.indexOf(t), n);
 		this.NotifierObservateur();
 	}
-	
-	public void suprimeTortue(TortueFormesPredefinies t){
+
+	public void suprimeTortue(TortueFormesPredefinies t) {
 		this.tortues.remove(t);
 		this.NotifierObservateur();
 	}
-	
+
 	public void initDefautCouleurs() {
 		String[] colorStrings = { "noir", "bleu", "cyan", "gris fonce", "rouge", "vert", "gris clair", "magenta", "orange", "gris", "rose", "jaune" };
 
