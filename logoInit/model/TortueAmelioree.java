@@ -53,7 +53,7 @@ public class TortueAmelioree extends TortueFormesPredefinies {
 	public void bonjour() {
 		for (TortueAmelioree uneTortue : tortuesConnues) {
 			double distanceEntreTortue = calculDistanceEntreTortue(uneTortue);
-			if (distanceEntreTortue <= 15) {
+			if (distanceEntreTortue <= 40) {
 				System.out.println("Coucou " + uneTortue.getName() + " !");
 				uneTortue.avancer(30);
 			}
