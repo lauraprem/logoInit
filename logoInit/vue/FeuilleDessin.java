@@ -1,6 +1,4 @@
 package vue;
-// package logo;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -24,9 +22,8 @@ import model.Tortue;
  */
 
 public class FeuilleDessin extends JPanel implements Observateur{
-//	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
-//	private DessinTortue dessinTortue;
-	private EnvironnementTortue modele;
+	protected DessinTortue dessinTortue;
+	protected EnvironnementTortue modele;
 	
 	public FeuilleDessin(EnvironnementTortue modele) {
 		this.modele = modele;
@@ -35,19 +32,7 @@ public class FeuilleDessin extends JPanel implements Observateur{
 		this.setBackground(Color.white);
 		this.setSize(new Dimension(600, 400));
 		this.setPreferredSize(new Dimension(600, 400));
-		
-		
-
-//		tortues = new ArrayList<Tortue>();
-		
-//		dessinTortue = new DessinTortue(modele.getTortueCourante());
-//		tortues.add(modele.getTortueCourante());
-		
 	}
-
-//	public void addTortue(Tortue o) {
-//		tortues.add(o);
-//	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -63,14 +48,19 @@ public class FeuilleDessin extends JPanel implements Observateur{
 	}
 	
 	public void showTurtles(Graphics g) {
+		creerDessinTortue();
 		for(Iterator it = modele.getTortues().iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-			DessinTortue.drawTurtle(g,t);
+			dessinTortue.drawTurtle(g,t);
 		}
 	}
 
 	@Override
 	public void Update() {
 		repaint();
+	}
+	
+	protected void creerDessinTortue() {
+		dessinTortue = new DessinTortue();
 	}
 }

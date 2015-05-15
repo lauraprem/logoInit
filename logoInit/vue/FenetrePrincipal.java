@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -9,16 +10,20 @@ import vue.menus.MenuBas;
 import vue.menus.MenuFichier;
 import vue.menus.MenuHaut;
 import model.EnvironnementTortue;
+import model.TortueFormesPredefinies;
 
 public class FenetrePrincipal extends JFrame{
 
-	private MenuFichier menuAppli;
-	private MenuHaut menuHaut;
-	private MenuBas menuBas;
-	private FeuilleDessin feuille;
+	protected MenuFichier menuAppli;
+	protected MenuHaut menuHaut;
+	protected MenuBas menuBas;
+	protected FeuilleDessin feuille;
+	protected EnvironnementTortue modele;
 
 	public FenetrePrincipal(EnvironnementTortue modele) {
 		super("un logo tout simple");
+		
+		this.modele = modele;
 		
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,9 +36,9 @@ public class FenetrePrincipal extends JFrame{
 
 		menuBas = new MenuBas(new GridLayout());
 		getContentPane().add(menuBas, "South");
-
-		feuille = new FeuilleDessin(modele);
-
+		
+		creerFeuilleDessin();
+		
 		getContentPane().add(feuille, "Center");
 
 		pack();
@@ -70,5 +75,9 @@ public class FenetrePrincipal extends JFrame{
 
 	public void setFeuille(FeuilleDessin feuille) {
 		this.feuille = feuille;
+	}
+	
+	protected void creerFeuilleDessin() {
+		feuille = new FeuilleDessin(modele);
 	}
 }
