@@ -33,6 +33,7 @@ public class EnvironnementTortue implements Observable {
 
 	public void setTortueCourante(int tortue) {
 		this.tortueCourante = tortue;
+		this.NotifierObservateur();
 	}
 
 	public ArrayList<Couleur> getListCouleur() {
@@ -41,10 +42,12 @@ public class EnvironnementTortue implements Observable {
 
 	public void setListCouleur(ArrayList<Couleur> listCouleur) {
 		this.listCouleur = listCouleur;
+		this.NotifierObservateur();
 	}
 
 	public void addListCouleur(Couleur couleur) {
 		this.listCouleur.add(couleur);
+		this.NotifierObservateur();
 	}
 
 	public int getDis() {
@@ -53,6 +56,7 @@ public class EnvironnementTortue implements Observable {
 
 	public void setDis(int dis) {
 		this.dis = dis;
+		this.NotifierObservateur();
 	}
 	
 	public ArrayList<TortueFormesPredefinies> getTortues() {
@@ -63,9 +67,11 @@ public class EnvironnementTortue implements Observable {
 		this.tortues = tortues;
 		this.NotifierObservateur();
 	}
-
+	
 	public void ajouteTortue(int n){
-		this.tortues.add(new TortueFormesPredefinies(n));
+		TortueFormesPredefinies t = new TortueFormesPredefinies(n);
+		this.tortues.add(t);
+		setTortueCourante(tortues.indexOf(t));
 		this.NotifierObservateur();
 	}
 	

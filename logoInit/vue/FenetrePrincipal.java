@@ -15,6 +15,7 @@ public class FenetrePrincipal extends JFrame{
 	private MenuFichier menuAppli;
 	private MenuHaut menuHaut;
 	private MenuBas menuBas;
+	private FeuilleDessin feuille;
 
 	public FenetrePrincipal(EnvironnementTortue modele) {
 		super("un logo tout simple");
@@ -31,7 +32,7 @@ public class FenetrePrincipal extends JFrame{
 		menuBas = new MenuBas(new GridLayout());
 		getContentPane().add(menuBas, "South");
 
-		FeuilleDessin feuille = new FeuilleDessin(modele);
+		feuille = new FeuilleDessin(modele);
 
 		getContentPane().add(feuille, "Center");
 
@@ -61,5 +62,13 @@ public class FenetrePrincipal extends JFrame{
 
 	public void setMenuBas(MenuBas menuBas) {
 		this.menuBas = menuBas;
+	}
+
+	public FeuilleDessin getFeuille() {
+		return feuille;
+	}
+
+	public void setFeuille(FeuilleDessin feuille) {
+		this.feuille = feuille;
 	}
 }

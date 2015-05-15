@@ -4,6 +4,8 @@ package vue;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,7 +23,7 @@ import model.Tortue;
  * @version 2.0
  */
 
-public class FeuilleDessin extends JPanel implements Observateur {
+public class FeuilleDessin extends JPanel implements Observateur{
 //	private ArrayList<Tortue> tortues; // la liste des tortues enregistrees
 //	private DessinTortue dessinTortue;
 	private EnvironnementTortue modele;
@@ -63,7 +65,7 @@ public class FeuilleDessin extends JPanel implements Observateur {
 	public void showTurtles(Graphics g) {
 		for(Iterator it = modele.getTortues().iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-			DessinTortue.drawTurtle(g, t);
+			DessinTortue.drawTurtle(g,t);
 		}
 	}
 
