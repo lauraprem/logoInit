@@ -1,5 +1,7 @@
 package vue.menus;
 
+import java.awt.Dimension;
+
 import javax.swing.Box;
 import javax.swing.JTextField;
 
@@ -12,7 +14,8 @@ public class MenuHautExtension extends MenuHaut{
 		super(model);
 		
 		toolBar.add(Box.createRigidArea(HGAP));
-		StringValue = new JTextField("                                  ");
+		StringValue = new JTextField("");
+		StringValue.setPreferredSize(new Dimension(100,5));
 		toolBar.add(StringValue);
 	}
 
