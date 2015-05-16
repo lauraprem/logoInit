@@ -57,14 +57,16 @@ public class ControleurMenus implements ActionListener {
 		model.ajouteTortue(n);
 	}
 
-	public void setVitesse() {
+	public int setVitesse() {
 		try {
 			int v = Integer.parseInt(vue.getMenuHaut().getInputValue()
 					.getText());
 			model.setDis(v);
+			return v;
 		} catch (NumberFormatException ex) {
 			System.err.println("ce n'est pas un nombre : "
 					+ vue.getMenuHaut().getInputValue().getText());
 		}
+		return 42;
 	}
 }

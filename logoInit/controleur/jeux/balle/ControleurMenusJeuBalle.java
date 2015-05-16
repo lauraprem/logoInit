@@ -3,6 +3,7 @@ package controleur.jeux.balle;
 import java.awt.event.ActionEvent;
 
 import model.EnvironnementTortue;
+import model.EnvironnementTortuesAmeliorees;
 import model.JeuDeBalle;
 import vue.FenetrePrincipal;
 import controleur.Extension.ControleurMenusExtention;
@@ -16,29 +17,33 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-//		super.actionPerformed(ev);
-
 		switch (ev.getActionCommand()) {
+		case "Quitter":
+			System.exit(0);
+			break;
+		case "Effacer":
+			((JeuDeBalle)model).reset();
+			break;
 		case "Avancer":
-			this.setVitesse();
-			((JeuDeBalle)model).setAction(0);
+			
+			((JeuDeBalle)model).setAction(0,this.setVitesse());
 			break;
 		case "Droite":
-			this.setVitesse();
-			((JeuDeBalle)model).setAction(2);
+			((JeuDeBalle)model).setAction(2,this.setVitesse());
 			break;
 		case "Gauche":
-			this.setVitesse();
-			((JeuDeBalle)model).setAction(1);
+			((JeuDeBalle)model).setAction(1,this.setVitesse());
 			break;
 		case "Start":
 			(new Thread((JeuDeBalle) model)).start();
-			System.out.println("Run, Run Foreste !");
 			break;
-		case "Stop":
-			(new Thread((JeuDeBalle) model)).stop();
-			System.out.println("Stop, Stop Foreste !");
+		case "Lever":
+			((JeuDeBalle)model).monter();
 			break;
+		case "Baisser":
+			((JeuDeBalle)model).baisser();
+			break;
+
 		default:
 			break;
 		}
