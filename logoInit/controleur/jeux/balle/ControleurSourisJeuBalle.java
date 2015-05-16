@@ -40,7 +40,7 @@ public class ControleurSourisJeuBalle extends ControleurSouris{
 							+ DessinTortue.getRp()) {
 				int n = vue.getMenuHaut().getComboBox().get(0)
 						.getSelectedIndex();
-				((JeuDeBalle)model).setTortueCourante(i, n);
+				((JeuDeBalle)model).setTortueCouranteJeuDeBalle(i);
 			}
 		}
 	}
