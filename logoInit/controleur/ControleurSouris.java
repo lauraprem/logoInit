@@ -10,8 +10,8 @@ import vue.FenetrePrincipal;
 
 public class ControleurSouris implements MouseListener {
 
-	private EnvironnementTortue model;
-	private FenetrePrincipal vue;
+	protected EnvironnementTortue model;
+	protected FenetrePrincipal vue;
 
 	public ControleurSouris(EnvironnementTortue _model, FenetrePrincipal _vue) {
 		model = _model;

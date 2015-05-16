@@ -10,9 +10,6 @@ import vue.FenetrePrincipal;
 import controleur.ControleurSouris;
 
 public class ControleurSourisJeuBalle extends ControleurSouris{
-
-	private EnvironnementTortue model;
-	private FenetrePrincipal vue;
 	
 	public ControleurSourisJeuBalle(EnvironnementTortue _model,
 			FenetrePrincipal _vue) {
