@@ -73,7 +73,7 @@ public class TortueAmelioree extends TortueFormesPredefinies {
 	public void setTortuesConnues(List<TortueAmelioree> tortuesConnues) {
 		this.tortuesConnues = tortuesConnues;
 	}
-	
+
 	 
 
 }

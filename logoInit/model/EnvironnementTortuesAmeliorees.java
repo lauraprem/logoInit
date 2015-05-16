@@ -51,5 +51,11 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue {
 			}
 		}
 	}
+	
+	public void reset(){
+		this.tortues.clear();
+		this.tortues.add(new TortueAmelioree());
+		tortueCourante=0;
+	}
 
 }
