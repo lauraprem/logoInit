@@ -52,6 +52,7 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue {
 		}
 	}
 	
+	@Override
 	public void reset(){
 		this.tortues.clear();
 		this.tortues.add(new TortueAmelioree());
