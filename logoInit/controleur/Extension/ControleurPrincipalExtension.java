@@ -1,10 +1,11 @@
-package controleur;
+package controleur.Extension;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
+import controleur.ControleurPrincipal;
 import model.EnvironnementTortue;
 import vue.FenetrePrincipal;
 

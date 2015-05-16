@@ -1,5 +1,6 @@
-package vue;
+package vue.Extension;
 
+import vue.FeuilleDessin;
 import model.EnvironnementTortue;
 
 public class FeuilleDessinExtension extends FeuilleDessin{

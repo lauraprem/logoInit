@@ -1,7 +1,8 @@
-package vue;
+package vue.Extension;
 
 import java.awt.Graphics;
 
+import vue.DessinTortue;
 import model.Tortue;
 import model.TortueAmelioree;
 

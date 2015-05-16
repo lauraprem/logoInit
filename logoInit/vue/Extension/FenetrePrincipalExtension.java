@@ -1,7 +1,7 @@
-package vue;
+package vue.Extension;
 
 import model.EnvironnementTortue;
-import vue.menus.MenuHautExtension;
+import vue.FenetrePrincipal;
 
 public class FenetrePrincipalExtension extends FenetrePrincipal {
 

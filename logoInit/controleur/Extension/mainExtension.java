@@ -1,4 +1,4 @@
-package controleur;
+package controleur.Extension;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 import model.EnvironnementTortue;
 import model.EnvironnementTortuesAmeliorees;
 import vue.FenetrePrincipal;
-import vue.FenetrePrincipalExtension;
+import vue.Extension.FenetrePrincipalExtension;
 
 public class mainExtension {
 	

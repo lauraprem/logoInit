@@ -1,10 +1,11 @@
-package vue.menus;
+package vue.Extension;
 
 import java.awt.Dimension;
 
 import javax.swing.Box;
 import javax.swing.JTextField;
 
+import vue.menus.MenuHaut;
 import model.EnvironnementTortue;
 
 public class MenuHautExtension extends MenuHaut{

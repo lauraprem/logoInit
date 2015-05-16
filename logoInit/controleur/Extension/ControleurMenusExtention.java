@@ -1,9 +1,10 @@
-package controleur;
+package controleur.Extension;
 
+import controleur.ControleurMenus;
 import model.EnvironnementTortue;
 import model.EnvironnementTortuesAmeliorees;
 import vue.FenetrePrincipal;
-import vue.menus.MenuHautExtension;
+import vue.Extension.MenuHautExtension;
 
 public class ControleurMenusExtention extends ControleurMenus {
 

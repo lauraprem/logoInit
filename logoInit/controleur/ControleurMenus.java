@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import model.EnvironnementTortue;
 import model.TortueFormesPredefinies;
 import vue.FenetrePrincipal;
-import vue.FeuilleDessinExtension;
+import vue.Extension.FeuilleDessinExtension;
 
 public class ControleurMenus implements ActionListener {
 	
