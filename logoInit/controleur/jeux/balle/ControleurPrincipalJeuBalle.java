@@ -24,4 +24,10 @@ public class ControleurPrincipalJeuBalle extends ControleurPrincipalExtension {
 			boutton.addActionListener(new ControleurMenusJeuBalle(modele, vue));
 		}
 	}
+	
+	@Override
+	public void AddControleurSouris() {
+		vue.getFeuille().addMouseListener(new ControleurSourisJeuBalle(modele, vue));
+	}
+
 }

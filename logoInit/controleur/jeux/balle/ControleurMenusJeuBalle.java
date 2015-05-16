@@ -16,14 +16,27 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		super.actionPerformed(ev);
+//		super.actionPerformed(ev);
 
 		switch (ev.getActionCommand()) {
+		case "Avancer":
+			this.setVitesse();
+			((JeuDeBalle)model).setAction(0);
+			break;
+		case "Droite":
+			this.setVitesse();
+			((JeuDeBalle)model).setAction(2);
+			break;
+		case "Gauche":
+			this.setVitesse();
+			((JeuDeBalle)model).setAction(1);
+			break;
 		case "Start":
 			(new Thread((JeuDeBalle) model)).start();
 			System.out.println("Run, Run Foreste !");
 			break;
 		case "Stop":
+			(new Thread((JeuDeBalle) model)).stop();
 			System.out.println("Stop, Stop Foreste !");
 			break;
 		default:

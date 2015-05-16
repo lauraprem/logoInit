@@ -23,7 +23,7 @@ public class ControleurPrincipal {
 		AddControleurProc();
 
 		// Listeners sur le feuille
-		vue.getFeuille().addMouseListener(new ControleurSouris(modele, vue));
+		AddControleurSouris();
 	}
 
 	public void AddControleurMenu() {
@@ -46,5 +46,9 @@ public class ControleurPrincipal {
 		for (JButton boutton : vue.getMenuBas().getListButon()) {
 			boutton.addActionListener(new ControleurProc(modele));
 		}
+	}
+	
+	public void AddControleurSouris() {
+		vue.getFeuille().addMouseListener(new ControleurSouris(modele, vue));
 	}
 }
