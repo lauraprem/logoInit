@@ -16,5 +16,6 @@ public class MenuHautJeuBalle extends MenuHautExtension{
 		super(model);
 		
 		addButton(toolBar, "Start", "Commencer une partie", null);
+		addButton(toolBar, "Stop", "Arrêter une partie", null);
 	}
 }

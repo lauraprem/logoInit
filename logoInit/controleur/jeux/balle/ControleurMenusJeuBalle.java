@@ -22,7 +22,11 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 		
 		switch (ev.getActionCommand()) {
 		case "Start":
+			//.run
 			System.out.println("Run, Run Foreste !");
+			break;
+		case "Stop":
+			System.out.println("Stop, Stop Foreste !");
 			break;
 		default:
 			break;
