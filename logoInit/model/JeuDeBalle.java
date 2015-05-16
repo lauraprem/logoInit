@@ -17,7 +17,7 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	public JeuDeBalle(int nbTortues) {
 		super();
 		initTortues(nbTortues);
-		actionTortueCoruante = -1;
+
 	}
 
 	/**
@@ -53,6 +53,7 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		tortues.add(0, new TortueBalle(tortues.get(rand.nextInt(tortues.size())), couleur, 15));
 		getBalle().updatePosition();
 		tortueCourante = -1;
+		actionTortueCoruante = -1;
 		NotifierObservateur();
 	}
 
@@ -104,7 +105,6 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		}
 	}
 
-
 	public ArrayList<TortueFormesPredefinies> getTortues() {
 		return tortues;
 	}
@@ -123,6 +123,11 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 
 	public TortueBalle getBalle() {
 		return (TortueBalle) tortues.get(0);
+	}
+
+	@Override
+	public void reset() {
+		initTortues(tortues.size());
 	}
 
 }
