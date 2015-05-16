@@ -9,9 +9,9 @@ import vue.DessinTortue;
 import model.Tortue;
 import model.TortueBalle;
 
-public class DessinTortueBalle extends DessinTortue {
+public class DessinTortueJeuBalle extends DessinTortue {
 
-	public DessinTortueBalle() {
+	public DessinTortueJeuBalle() {
 		super();
 	}
 

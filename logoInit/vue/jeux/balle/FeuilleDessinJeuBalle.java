@@ -11,6 +11,6 @@ public class FeuilleDessinJeuBalle extends FeuilleDessin{
 	
 	@Override
 	protected void creerDessinTortue() {
-		dessinTortue = new DessinTortueBalle();
+		dessinTortue = new DessinTortueJeuBalle();
 	}	
 }
