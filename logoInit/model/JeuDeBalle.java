@@ -28,6 +28,12 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	public synchronized void setAction(int action) {
 		this.actionTortueCoruante = action;
 	}
+	
+	public synchronized void setTortueCourante(int index){
+		if(index != 0 && index < tortues.size()){
+			tortueCourante = index;
+		}
+	}
 
 	private void initTortues(int nbTortues) {
 		tortues.clear();
