@@ -3,6 +3,7 @@ package controleur.jeux.balle;
 import java.awt.event.ActionEvent;
 
 import model.EnvironnementTortue;
+import model.JeuDeBalle;
 import vue.FenetrePrincipal;
 import controleur.Extension.ControleurMenusExtention;
 
@@ -19,7 +20,7 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 
 		switch (ev.getActionCommand()) {
 		case "Start":
-			// .run
+			((JeuDeBalle) model).run();
 			System.out.println("Run, Run Foreste !");
 			break;
 		case "Stop":
