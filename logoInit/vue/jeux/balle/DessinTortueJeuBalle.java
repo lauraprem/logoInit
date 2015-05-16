@@ -8,31 +8,18 @@ import java.awt.geom.Ellipse2D;
 import model.Tortue;
 import model.TortueBalle;
 import vue.DessinTortue;
+import vue.Extension.DessinTortueExtension;
 
-public class DessinTortueJeuBalle extends DessinTortue {
+public class DessinTortueJeuBalle extends DessinTortueExtension {
 
 	public DessinTortueJeuBalle() {
 		super();
-	}
-
-	public void drawTurtleSegements(Graphics graph, Tortue tortue) {
-		if (graph == null) {
-			return;
-		}
-
-		// Dessine les segments
-		drawSegements(graph, tortue);
-
-		drawTurtle(graph, tortue);
 	}
 
 	public void drawTurtle(Graphics graph, Tortue tortue) {
 		if (graph == null) {
 			return;
 		}
-
-		// Dessine les segments
-		drawSegements(graph, tortue);
 
 		if (tortue instanceof TortueBalle) {
 			drawDisque(graph, tortue);

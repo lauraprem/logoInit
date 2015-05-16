@@ -13,8 +13,8 @@ public class DessinTortueExtension extends DessinTortue {
 	}
 
 	@Override
-	public void drawTurtleSegements(Graphics graph, Tortue tortue) {
-		super.drawTurtleSegements(graph, tortue);
+	public void drawTurtle(Graphics graph, Tortue tortue) {
+		
 		graph.drawString((((TortueAmelioree) tortue).getName()),
 				(int) Math.round(tortue.getCoor().getX() + getRb()),
 				(int) Math.round(tortue.getCoor().getY()));

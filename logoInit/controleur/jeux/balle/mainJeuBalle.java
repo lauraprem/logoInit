@@ -4,12 +4,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import model.EnvironnementTortuesAmeliorees;
+import model.JeuDeBalle;
 import vue.jeux.balle.FenetrePrincipalJeuBalle;
 
 public class mainJeuBalle {
 
 	public static void main(String[] args) {
-		EnvironnementTortuesAmeliorees modele = new EnvironnementTortuesAmeliorees();
+		JeuDeBalle modele = new JeuDeBalle(8);
 		FenetrePrincipalJeuBalle vue = new FenetrePrincipalJeuBalle(modele);
 
 		vue.addWindowListener(new WindowAdapter() {
