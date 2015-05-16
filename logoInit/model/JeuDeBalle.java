@@ -12,11 +12,12 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	/**
 	 * 0 : avancer ; 1 : gauche ; 2 : droite
 	 */
-	protected int action;
+	protected int actionTortueCoruante;
 
 	public JeuDeBalle(int nbTortues) {
 		super();
 		initTortues(nbTortues);
+		actionTortueCoruante = -1;
 	}
 
 	/**
@@ -25,7 +26,7 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	 * @return
 	 */
 	public synchronized void setAction(int action) {
-		this.action = action;
+		this.actionTortueCoruante = action;
 	}
 
 	private void initTortues(int nbTortues) {
@@ -55,7 +56,8 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		while (true) {
 			for (int i = 1; i < tortues.size(); i++) {
 				if (i == tortueCourante) {
-					a = action;
+					a = actionTortueCoruante;
+					actionTortueCoruante = -1;
 				} else {
 					// déplacert tortue
 					a = rand.nextInt(3);
