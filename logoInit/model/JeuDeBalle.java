@@ -39,7 +39,7 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		while (true) {
 			for (int i = 1; i < tortues.size(); i++) {
 				if (i != tortueCourante) {
-					//déplacert tortue
+					// déplacert tortue
 					action = rand.nextInt(3);
 					switch (action) {
 						case 0:
@@ -51,17 +51,19 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 						case 2:
 							tortues.get(i).droite(dis);
 					}
-					// si possesseuse balle, faire passe
-					if (tortues.get(i).equals(getBalle().getPossesseur())) {
-						for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
-							if (getBalle().fairePasse(uneTortue)) {
-								break;
-							}
+				}
+				// si possesseuse balle, faire passe
+				if (tortues.get(i).equals(getBalle().getPossesseur())) {
+					getBalle().updatePosition();
+					for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
+						if (getBalle().fairePasse(uneTortue)) {
+							break;
 						}
 					}
-					this.NotifierObservateur();
 				}
+				this.NotifierObservateur();
 			}
+
 		}
 	}
 
