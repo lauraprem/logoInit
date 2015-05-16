@@ -61,35 +61,33 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		int a;
 		while (true) {
 			for (int i = 1; i < tortues.size(); i++) {
-				if (i == tortueCourante) {
-					if (actionTortueCoruante == -1) {
-						break;
+				if (i != tortueCourante || actionTortueCoruante != -1) {
+					if (i == tortueCourante) {
+						a = actionTortueCoruante;
+						actionTortueCoruante = -1;
+					} else {
+						// déplacer tortue
+						a = rand.nextInt(3);
 					}
-					a = actionTortueCoruante;
-					actionTortueCoruante = -1;
-				} else {
-					// déplacer tortue
-					a = rand.nextInt(3);
-				}
-				// déplacert tortue
-//				a = rand.nextInt(3);
-				switch (a) {
-					case 0:
-						tortues.get(i).avancer(dis);
-						break;
-					case 1:
-						tortues.get(i).gauche(dis);
-						break;
-					case 2:
-						tortues.get(i).droite(dis);
-
-				}
-				// si possesseuse balle, faire passe
-				if (tortues.get(i).equals(getBalle().getPossesseur())) {
-					getBalle().updatePosition();
-					for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
-						if (getBalle().fairePasse(uneTortue)) {
+					// déplacert tortue
+					switch (a) {
+						case 0:
+							tortues.get(i).avancer(dis);
 							break;
+						case 1:
+							tortues.get(i).gauche(dis);
+							break;
+						case 2:
+							tortues.get(i).droite(dis);
+
+					}
+					// si possesseuse balle, faire passe
+					if (tortues.get(i).equals(getBalle().getPossesseur())) {
+						getBalle().updatePosition();
+						for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
+							if (getBalle().fairePasse(uneTortue)) {
+								break;
+							}
 						}
 					}
 				}
