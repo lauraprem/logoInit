@@ -14,7 +14,7 @@ public class DessinTortueExtension extends DessinTortue {
 
 	@Override
 	public void drawTurtle(Graphics graph, Tortue tortue) {
-		
+		drawTriangle(graph, tortue);
 		graph.drawString((((TortueAmelioree) tortue).getName()),
 				(int) Math.round(tortue.getCoor().getX() + getRb()),
 				(int) Math.round(tortue.getCoor().getY()));
