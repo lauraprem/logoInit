@@ -20,12 +20,13 @@ public class EnvironnementTortue implements Observable {
 		this.initDefautCouleurs();
 		dis = 45;
 
-		tortueCourante = 0;
+		
 	}
 
 	protected void creerTortues() {
 		tortues = new ArrayList<TortueFormesPredefinies>();
 		tortues.add(new TortueFormesPredefinies());
+		tortueCourante = 0;
 	}
 
 

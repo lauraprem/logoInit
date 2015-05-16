@@ -55,7 +55,7 @@ public class TortueAmelioree extends TortueFormesPredefinies {
 			double distanceEntreTortue = calculDistanceEntreTortue(uneTortue);
 			if (distanceEntreTortue <= 40) {
 				System.out.println("Coucou " + uneTortue.getName() + " !");
-				uneTortue.avancer(30);
+//				uneTortue.avancer(30);
 			}
 		}
 	}
@@ -65,5 +65,15 @@ public class TortueAmelioree extends TortueFormesPredefinies {
 		calc = Math.sqrt(Math.pow(this.getCoor().getX() - t.getCoor().getX(), 2) + Math.pow(this.getCoor().getY() - t.getCoor().getY(), 2));
 		return calc;
 	}
+
+	public List<TortueAmelioree> getTortuesConnues() {
+		return tortuesConnues;
+	}
+
+	public void setTortuesConnues(List<TortueAmelioree> tortuesConnues) {
+		this.tortuesConnues = tortuesConnues;
+	}
+	
+	 
 
 }
