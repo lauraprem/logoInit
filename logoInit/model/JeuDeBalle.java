@@ -62,8 +62,14 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 					}
 				}
 				this.NotifierObservateur();
+				
 			}
-
+			try {
+				Thread.currentThread().sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
