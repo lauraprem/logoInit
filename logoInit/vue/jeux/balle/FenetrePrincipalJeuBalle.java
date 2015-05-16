@@ -8,12 +8,12 @@ public class FenetrePrincipalJeuBalle extends FenetrePrincipal {
 	public FenetrePrincipalJeuBalle(EnvironnementTortue modele) {
 		super(modele);
 	}
-	
+
 	@Override
 	protected void creerFeuilleDessin() {
 		feuille = new FeuilleDessinJeuBalle(modele);
 	}
-	
+
 	@Override
 	protected void creerMenuHaut() {
 		menuHaut = new MenuHautJeuBalle(modele);

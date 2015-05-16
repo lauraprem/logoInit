@@ -19,7 +19,7 @@ public class ControleurCouleur implements ActionListener {
 	public void actionPerformed(ActionEvent ev) {
 		JComboBox cb = (JComboBox) ev.getSource();
 		int n = cb.getSelectedIndex();
-		
+
 		model.setCouleur(n);
 	}
 }

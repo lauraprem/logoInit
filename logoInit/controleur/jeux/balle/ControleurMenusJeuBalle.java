@@ -2,12 +2,9 @@ package controleur.jeux.balle;
 
 import java.awt.event.ActionEvent;
 
-import controleur.ControleurMenus;
-import controleur.Extension.ControleurMenusExtention;
 import model.EnvironnementTortue;
-import model.EnvironnementTortuesAmeliorees;
 import vue.FenetrePrincipal;
-import vue.Extension.MenuHautExtension;
+import controleur.Extension.ControleurMenusExtention;
 
 public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 
@@ -19,10 +16,10 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 	@Override
 	public void actionPerformed(ActionEvent ev) {
 		super.actionPerformed(ev);
-		
+
 		switch (ev.getActionCommand()) {
 		case "Start":
-			//.run
+			// .run
 			System.out.println("Run, Run Foreste !");
 			break;
 		case "Stop":

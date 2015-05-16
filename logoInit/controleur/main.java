@@ -7,10 +7,10 @@ import model.EnvironnementTortue;
 import vue.FenetrePrincipal;
 
 public class main {
-	
+
 	public static void main(String[] args) {
 		EnvironnementTortue modele = new EnvironnementTortue();
-		FenetrePrincipal vue= new FenetrePrincipal(modele);
+		FenetrePrincipal vue = new FenetrePrincipal(modele);
 
 		vue.addWindowListener(new WindowAdapter() {
 			@Override
@@ -21,8 +21,8 @@ public class main {
 		});
 		vue.setVisible(true);
 
-		ControleurPrincipal controleurPrincipal = new ControleurPrincipal(modele, vue);
+		ControleurPrincipal controleurPrincipal = new ControleurPrincipal(
+				modele, vue);
 	}
 
-	
 }

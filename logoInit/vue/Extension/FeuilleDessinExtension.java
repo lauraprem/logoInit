@@ -1,10 +1,10 @@
 package vue.Extension;
 
-import vue.FeuilleDessin;
 import model.EnvironnementTortue;
+import vue.FeuilleDessin;
 
-public class FeuilleDessinExtension extends FeuilleDessin{
-	
+public class FeuilleDessinExtension extends FeuilleDessin {
+
 	public FeuilleDessinExtension(EnvironnementTortue modele) {
 		super(modele);
 	}
@@ -12,5 +12,5 @@ public class FeuilleDessinExtension extends FeuilleDessin{
 	@Override
 	protected void creerDessinTortue() {
 		dessinTortue = new DessinTortueExtension();
-	}	
+	}
 }

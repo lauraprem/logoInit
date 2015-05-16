@@ -4,7 +4,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import model.EnvironnementTortuesAmeliorees;
-import vue.Extension.FenetrePrincipalExtension;
 import vue.jeux.balle.FenetrePrincipalJeuBalle;
 
 public class mainJeuBalle {

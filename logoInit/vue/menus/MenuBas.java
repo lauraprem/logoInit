@@ -6,17 +6,15 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import model.EnvironnementTortue;
-
 public class MenuBas extends JPanel {
-	
+
 	private ArrayList<JButton> listButon;
-	
-	public MenuBas(LayoutManager layout){
+
+	public MenuBas(LayoutManager layout) {
 		super(layout);
-		
+
 		listButon = new ArrayList<JButton>();
-		
+
 		JButton b20 = new JButton("Proc1");
 		listButon.add(b20);
 		this.add(b20);

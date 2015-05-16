@@ -9,20 +9,18 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import model.EnvironnementTortue;
-
 public class MenuFichier extends JMenuBar {
 
 	JMenu menuFile;
 	JMenu menuCommandes;
 	JMenu menuHelp;
-	
+
 	private ArrayList<JMenuItem> listButon;
 
 	public MenuFichier() {
-		
+
 		listButon = new ArrayList<JMenuItem>();
-		
+
 		menuFile = new JMenu("File"); // on installe le premier menu
 		this.add(menuFile);
 		addMenuItem(menuFile, "Effacer", "Effacer", KeyEvent.VK_N);

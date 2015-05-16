@@ -2,17 +2,15 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import model.EnvironnementTortue;
 import vue.menus.MenuBas;
 import vue.menus.MenuFichier;
 import vue.menus.MenuHaut;
-import model.EnvironnementTortue;
-import model.TortueFormesPredefinies;
 
-public class FenetrePrincipal extends JFrame{
+public class FenetrePrincipal extends JFrame {
 
 	protected MenuFichier menuAppli;
 	protected MenuHaut menuHaut;
@@ -22,21 +20,21 @@ public class FenetrePrincipal extends JFrame{
 
 	public FenetrePrincipal(EnvironnementTortue modele) {
 		super("un logo tout simple");
-		
+
 		this.modele = modele;
-		
+
 		getContentPane().setLayout(new BorderLayout(10, 10));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		creerMenuFichier();
-		setJMenuBar(menuAppli);	// on installe le menu bar
+		setJMenuBar(menuAppli); // on installe le menu bar
 
 		creerMenuHaut();
 		getContentPane().add(menuHaut, "North");
 
 		creerMenuBas();
 		getContentPane().add(menuBas, "South");
-		
+
 		creerFeuilleDessin();
 		getContentPane().add(feuille, "Center");
 
@@ -75,19 +73,19 @@ public class FenetrePrincipal extends JFrame{
 	public void setFeuille(FeuilleDessin feuille) {
 		this.feuille = feuille;
 	}
-	
+
 	protected void creerMenuFichier() {
 		menuAppli = new MenuFichier();
 	}
-	
+
 	protected void creerMenuHaut() {
 		menuHaut = new MenuHaut(modele);
 	}
-	
+
 	protected void creerMenuBas() {
 		menuBas = new MenuBas(new GridLayout());
 	}
-	
+
 	protected void creerFeuilleDessin() {
 		feuille = new FeuilleDessin(modele);
 	}

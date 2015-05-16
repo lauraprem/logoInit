@@ -5,18 +5,18 @@ import java.awt.Dimension;
 import javax.swing.Box;
 import javax.swing.JTextField;
 
-import vue.menus.MenuHaut;
 import model.EnvironnementTortue;
+import vue.menus.MenuHaut;
 
-public class MenuHautExtension extends MenuHaut{
+public class MenuHautExtension extends MenuHaut {
 	protected JTextField StringValue;
 
 	public MenuHautExtension(EnvironnementTortue model) {
 		super(model);
-		
+
 		toolBar.add(Box.createRigidArea(HGAP));
 		StringValue = new JTextField("");
-		StringValue.setPreferredSize(new Dimension(80,5));
+		StringValue.setPreferredSize(new Dimension(80, 5));
 		toolBar.add(StringValue);
 	}
 

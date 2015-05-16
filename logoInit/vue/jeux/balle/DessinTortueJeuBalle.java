@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
 
-import vue.DessinTortue;
 import model.Tortue;
 import model.TortueBalle;
+import vue.DessinTortue;
 
 public class DessinTortueJeuBalle extends DessinTortue {
 
@@ -25,7 +25,7 @@ public class DessinTortueJeuBalle extends DessinTortue {
 
 		drawTurtle(graph, tortue);
 	}
-	
+
 	public void drawTurtle(Graphics graph, Tortue tortue) {
 		if (graph == null) {
 			return;
@@ -33,10 +33,10 @@ public class DessinTortueJeuBalle extends DessinTortue {
 
 		// Dessine les segments
 		drawSegements(graph, tortue);
-		
-		if(tortue instanceof TortueBalle){
+
+		if (tortue instanceof TortueBalle) {
 			drawDisque(graph, tortue);
-		}else{
+		} else {
 			drawTriangle(graph, tortue);
 		}
 	}

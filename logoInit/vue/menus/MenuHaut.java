@@ -2,8 +2,6 @@ package vue.menus;
 
 import java.awt.Dimension;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -19,7 +17,7 @@ import javax.swing.JToolBar;
 
 import model.EnvironnementTortue;
 
-public class MenuHaut extends JPanel{
+public class MenuHaut extends JPanel {
 	public static final Dimension VGAP = new Dimension(1, 5);
 	public static final Dimension HGAP = new Dimension(5, 1);
 
@@ -37,10 +35,9 @@ public class MenuHaut extends JPanel{
 
 		addButton(toolBar, "Effacer", "Nouveau dessin", "/icons/index.png");
 		addButton(toolBar, "Tortue", "Ajout tortue", null);
-		
+
 		toolBar.add(Box.createRigidArea(HGAP));
-		inputValue = new JTextField(
-				Integer.toString(model.getDis()), 5);
+		inputValue = new JTextField(Integer.toString(model.getDis()), 5);
 		toolBar.add(inputValue);
 		this.add(toolBar);
 		addButton(toolBar, "Avancer", "Avancer 50", null);
@@ -62,11 +59,9 @@ public class MenuHaut extends JPanel{
 		return inputValue;
 	}
 
-
 	public void setInputValue(JTextField inputValue) {
 		this.inputValue = inputValue;
 	}
-
 
 	public ArrayList<JButton> getListButon() {
 		return listButon;

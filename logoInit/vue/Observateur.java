@@ -1,11 +1,11 @@
 package vue;
 
 /**
-*
-* @author Corinne & Laura
-*/
+ *
+ * @author Corinne & Laura
+ */
 
 public interface Observateur {
 
-   public void Update();
+	public void Update();
 }
