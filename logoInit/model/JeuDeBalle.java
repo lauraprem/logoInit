@@ -29,7 +29,9 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 			tortues.add(t);
 		}
 		tortues.add(0, new TortueBalle(tortues.get(rand.nextInt(tortues.size())), couleur, 15));
+		getBalle().updatePosition();
 		tortueCourante = -1;
+		NotifierObservateur();
 	}
 
 	@Override
