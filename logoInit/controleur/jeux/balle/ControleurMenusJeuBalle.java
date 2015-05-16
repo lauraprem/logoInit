@@ -25,7 +25,6 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 			((JeuDeBalle)model).reset();
 			break;
 		case "Avancer":
-			
 			((JeuDeBalle)model).setAction(0,this.setVitesse());
 			break;
 		case "Droite":
