@@ -39,15 +39,16 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		tortues.clear();
 		Random rand = new Random();
 		TortueAmelioree t;
-		int couleur = 5;
+		int couleur = 4;
 		for (int i = 0; i < nbTortues; i++) {
-			if (i == nbTortues / 2) {
-				couleur = 2;
-			}
+//			if (i == nbTortues / 2) {
+//				couleur = 1;
+//			}
 			t = new TortueAmelioree(couleur);
 			t.setCoor(rand.nextInt(maxX), rand.nextInt(maxY));
 			t.leverCrayon();
 			tortues.add(t);
+			this.ajouterTortuesConnues(t);
 		}
 		tortues.add(0, new TortueBalle(tortues.get(rand.nextInt(tortues.size())), couleur, 15));
 		getBalle().updatePosition();
@@ -82,19 +83,20 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 
 					}
 					// si possesseuse balle, faire passe
-					if (tortues.get(i).equals(getBalle().getPossesseur())) {
+//					if (tortues.get(i).equals(getBalle().getPossesseur())) {
 						getBalle().updatePosition();
 						for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
-							if (getBalle().fairePasse(uneTortue)) {
+							boolean p = getBalle().fairePasse(uneTortue);
+							if (p) {
 								break;
 							}
-						}
+//						}
 					}
 				}
 				this.NotifierObservateur();
 			}
 			try {
-				Thread.currentThread().sleep(500);
+				Thread.currentThread().sleep(750);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -102,31 +104,6 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		}
 	}
 
-	// private void deplacerTortuesAleatoirement() {
-	// Random rand = new Random();
-	// int action;
-	// for (int i = 1; i < tortues.size(); i++) {
-	// action = rand.nextInt(3);
-	// switch (action) {
-	// case 0:
-	// tortues.get(i).avancer(dis);
-	// break;
-	// case 1:
-	// tortues.get(i).gauche(dis);
-	// break;
-	// case 2:
-	// tortues.get(i).droite(dis);
-	// }
-	// if (tortues.get(i).equals(getBalle().getPossesseur())) {
-	// for (TortueAmelioree uneTortue : ((TortueAmelioree)
-	// tortues.get(i)).getTortuesConnues()) {
-	// if(getBalle().fairePasse(tortues.get(i))){
-	// break;
-	// }
-	// }
-	// }
-	// }
-	// }
 
 	public ArrayList<TortueFormesPredefinies> getTortues() {
 		return tortues;

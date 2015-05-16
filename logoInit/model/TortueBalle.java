@@ -27,7 +27,7 @@ public class TortueBalle extends TortueFormesPredefinies {
 	}
 
 	public boolean fairePasse(TortueFormesPredefinies tortue) {
-		if (tortue.calculDistanceEntreTortue(possesseur) <= 50 && !tortue.equals(possesseur) && (System.currentTimeMillis() - temps) > 5000) {
+		if (tortue.calculDistanceEntreTortue(possesseur) <= 100 && !tortue.equals(possesseur) ){//TODO&& (System.currentTimeMillis() - temps) > 10) {
 			possesseur = tortue;
 			updatePosition();
 			return true;

@@ -44,7 +44,7 @@ public class Tortue {
 	 * Couleur du trait
 	 */
 	protected Couleur couleurTrait;
-	
+
 	/**
 	 * Couleur de la tortue
 	 */
@@ -69,7 +69,7 @@ public class Tortue {
 		observateurs = new ArrayList<Observateur>();
 		reset();
 	}
-	
+
 	public Tortue(int couleur) {
 		listSegments = new ArrayList<Segment>();
 		observateurs = new ArrayList<Observateur>();
@@ -122,7 +122,7 @@ public class Tortue {
 	public static double getRatiodegrad() {
 		return ratioDegRad;
 	}
-	
+
 	public Couleur getCouleurTrait() {
 		return couleurTrait;
 	}
@@ -149,36 +149,35 @@ public class Tortue {
 		crayon = true;
 		listSegments.clear();
 	}
-	
-	
-    public double calculDistanceEntreTortue(Tortue t) {
-        double calc;
-        calc = Math.sqrt(Math.pow(this.getCoor().getX() - t.getCoor().getX(), 2) + Math.pow(this.getCoor().getY() - t.getCoor().getY(), 2));
-        return calc;
-    }
+
+	public double calculDistanceEntreTortue(Tortue t) {
+		double calc;
+		calc = Math.sqrt(Math.pow(this.getCoor().getX() - t.getCoor().getX(), 2) + Math.pow(this.getCoor().getY() - t.getCoor().getY(), 2));
+		return calc;
+	}
+
 	/** les procedures de base de fonctionnement de la tortue */
 
 	// avancer de n pas
 	public void avancer(int dist) {
-		int newX = (int) Math.round(coor.getX() + dist
-				* Math.cos(ratioDegRad * dir));
-		int newY = (int) Math.round(coor.getY() + dist
-				* Math.sin(ratioDegRad * dir));
+		int newX = (int) Math.round(coor.getX() + dist * Math.cos(ratioDegRad * dir));
+		int newY = (int) Math.round(coor.getY() + dist * Math.sin(ratioDegRad * dir));
+		if (newX > 0 && newY > 0 && newX < 500 && newY < 400) {
+			if (crayon == true) {
+				Segment seg = new Segment();
 
-		if (crayon == true) {
-			Segment seg = new Segment();
+				seg.getPtStart().x = coor.x;
+				seg.getPtStart().y = coor.y;
+				seg.getPtEnd().x = newX;
+				seg.getPtEnd().y = newY;
+				seg.setColor(couleurTrait.decodeColor());
 
-			seg.getPtStart().x = coor.x;
-			seg.getPtStart().y = coor.y;
-			seg.getPtEnd().x = newX;
-			seg.getPtEnd().y = newY;
-			seg.setColor(couleurTrait.decodeColor());
+				listSegments.add(seg);
+			}
 
-			listSegments.add(seg);
+			coor.x = newX;
+			coor.y = newY;
 		}
-
-		coor.x = newX;
-		coor.y = newY;
 	}
 
 	// aller a droite
@@ -200,8 +199,9 @@ public class Tortue {
 	public void leverCrayon() {
 		crayon = false;
 	}
-	
-    public boolean equals(Tortue obj) {
-        return this.getCoor().getX()==obj.getCoor().getX() && getCoor().getY()==obj.getCoor().getY() && dir == obj.getDir() && crayon==obj.isCrayon() && couleurTortue==obj.getCouleurTortue();
-    }
+
+	public boolean equals(Tortue obj) {
+		return this.getCoor().getX() == obj.getCoor().getX() && getCoor().getY() == obj.getCoor().getY() && dir == obj.getDir() && crayon == obj.isCrayon()
+				&& couleurTortue == obj.getCouleurTortue();
+	}
 }
