@@ -28,9 +28,9 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	public synchronized void setAction(int action) {
 		this.actionTortueCoruante = action;
 	}
-	
-	public synchronized void setTortueCouranteJeuDeBalle(int index){
-		if(index != 0 && index < tortues.size()){
+
+	public synchronized void setTortueCouranteJeuDeBalle(int index) {
+		if (index != 0 && index < tortues.size()) {
 			tortueCourante = index;
 		}
 	}
@@ -62,14 +62,17 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		while (true) {
 			for (int i = 1; i < tortues.size(); i++) {
 				if (i == tortueCourante) {
+					if (actionTortueCoruante == -1) {
+						break;
+					}
 					a = actionTortueCoruante;
 					actionTortueCoruante = -1;
 				} else {
-					// déplacert tortue
+					// déplacer tortue
 					a = rand.nextInt(3);
 				}
 				// déplacert tortue
-				a = rand.nextInt(3);
+//				a = rand.nextInt(3);
 				switch (a) {
 					case 0:
 						tortues.get(i).avancer(dis);
@@ -91,7 +94,6 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 					}
 				}
 				this.NotifierObservateur();
-
 			}
 			try {
 				Thread.currentThread().sleep(500);
