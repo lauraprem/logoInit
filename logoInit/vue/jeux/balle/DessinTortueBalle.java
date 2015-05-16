@@ -1,11 +1,13 @@
-package vue;
+package vue.jeux.balle;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
 
+import vue.DessinTortue;
 import model.Tortue;
+import model.TortueBalle;
 
 public class DessinTortueBalle extends DessinTortue {
 
@@ -31,8 +33,12 @@ public class DessinTortueBalle extends DessinTortue {
 
 		// Dessine les segments
 		drawSegements(graph, tortue);
-
-		drawDisque(graph, tortue);
+		
+		if(tortue instanceof TortueBalle){
+			drawDisque(graph, tortue);
+		}else{
+			drawTriangle(graph, tortue);
+		}
 	}
 
 	public void drawDisque(Graphics graph, Tortue tortue) {

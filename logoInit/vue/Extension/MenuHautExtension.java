@@ -16,7 +16,7 @@ public class MenuHautExtension extends MenuHaut{
 		
 		toolBar.add(Box.createRigidArea(HGAP));
 		StringValue = new JTextField("");
-		StringValue.setPreferredSize(new Dimension(100,5));
+		StringValue.setPreferredSize(new Dimension(80,5));
 		toolBar.add(StringValue);
 	}
 
