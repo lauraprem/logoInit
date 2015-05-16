@@ -57,6 +57,7 @@ public class EnvironnementTortuesAmeliorees extends EnvironnementTortue {
 		this.tortues.clear();
 		this.tortues.add(new TortueAmelioree());
 		tortueCourante=0;
+		this.NotifierObservateur();
 	}
 
 }
