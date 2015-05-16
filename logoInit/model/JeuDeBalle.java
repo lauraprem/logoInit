@@ -41,9 +41,9 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		TortueAmelioree t;
 		int couleur = 4;
 		for (int i = 0; i < nbTortues; i++) {
-//			if (i == nbTortues / 2) {
-//				couleur = 1;
-//			}
+			if (i == nbTortues / 2) {
+				couleur = 1;
+			}
 			t = new TortueAmelioree(couleur);
 			t.setCoor(rand.nextInt(maxX), rand.nextInt(maxY));
 			t.leverCrayon();
@@ -70,7 +70,7 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 						// déplacer tortue
 						a = rand.nextInt(3);
 					}
-					// déplacert tortue
+					// déplacer tortue
 					switch (a) {
 						case 0:
 							tortues.get(i).avancer(dis);
@@ -83,14 +83,14 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 
 					}
 					// si possesseuse balle, faire passe
-//					if (tortues.get(i).equals(getBalle().getPossesseur())) {
+					if (tortues.get(i).equals(getBalle().getPossesseur())) {
 						getBalle().updatePosition();
 						for (TortueAmelioree uneTortue : ((TortueAmelioree) tortues.get(i)).getTortuesConnues()) {
 							boolean p = getBalle().fairePasse(uneTortue);
 							if (p) {
 								break;
 							}
-//						}
+						}
 					}
 				}
 				this.NotifierObservateur();
