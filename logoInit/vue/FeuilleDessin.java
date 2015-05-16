@@ -51,7 +51,7 @@ public class FeuilleDessin extends JPanel implements Observateur{
 		creerDessinTortue();
 		for(Iterator it = modele.getTortues().iterator();it.hasNext();) {
 			Tortue t = (Tortue) it.next();
-			dessinTortue.drawTurtle(g,t);
+			dessinTortue.drawTurtleSegements(g,t);
 		}
 	}
 

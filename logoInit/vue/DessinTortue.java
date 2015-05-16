@@ -23,14 +23,22 @@ public class DessinTortue{
 	public DessinTortue(){
 		super();
 	}
-
-	public void drawTurtle(Graphics graph,Tortue tortue) {
+	
+	public void drawTurtleSegements(Graphics graph,Tortue tortue) {
 		if (graph == null) {
 			return;
 		}
 
 		// Dessine les segments
 		drawSegements( graph, tortue);
+		
+		drawTurtle(graph,tortue);
+	}
+
+	public void drawTurtle(Graphics graph,Tortue tortue) {
+		if (graph == null) {
+			return;
+		}
 		
 		drawTriangle(graph,tortue);
 	}

@@ -13,6 +13,17 @@ public class DessinTortueBalle extends DessinTortue {
 		super();
 	}
 
+	public void drawTurtleSegements(Graphics graph, Tortue tortue) {
+		if (graph == null) {
+			return;
+		}
+
+		// Dessine les segments
+		drawSegements(graph, tortue);
+
+		drawTurtle(graph, tortue);
+	}
+	
 	public void drawTurtle(Graphics graph, Tortue tortue) {
 		if (graph == null) {
 			return;
