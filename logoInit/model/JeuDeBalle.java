@@ -9,9 +9,23 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 
 	protected final int maxY = 400;
 
+	/**
+	 * 0 : avancer ; 1 : gauche ; 2 : droite
+	 */
+	protected int action;
+
 	public JeuDeBalle(int nbTortues) {
 		super();
 		initTortues(nbTortues);
+	}
+
+	/**
+	 * 
+	 * @param action 0 : avancer ; 1 : gauche ; 2 : droite
+	 * @return
+	 */
+	public synchronized void setAction(int action) {
+		this.action = action;
 	}
 
 	private void initTortues(int nbTortues) {
@@ -37,22 +51,27 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	@Override
 	public void run() {
 		Random rand = new Random();
-		int action;
+		int a;
 		while (true) {
 			for (int i = 1; i < tortues.size(); i++) {
-				if (i != tortueCourante) {
+				if (i == tortueCourante) {
+					a = action;
+				} else {
 					// déplacert tortue
-					action = rand.nextInt(3);
-					switch (action) {
-						case 0:
-							tortues.get(i).avancer(dis);
-							break;
-						case 1:
-							tortues.get(i).gauche(dis);
-							break;
-						case 2:
-							tortues.get(i).droite(dis);
-					}
+					a = rand.nextInt(3);
+				}
+				// déplacert tortue
+				a = rand.nextInt(3);
+				switch (a) {
+					case 0:
+						tortues.get(i).avancer(dis);
+						break;
+					case 1:
+						tortues.get(i).gauche(dis);
+						break;
+					case 2:
+						tortues.get(i).droite(dis);
+
 				}
 				// si possesseuse balle, faire passe
 				if (tortues.get(i).equals(getBalle().getPossesseur())) {
@@ -64,10 +83,10 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 					}
 				}
 				this.NotifierObservateur();
-				
+
 			}
 			try {
-				Thread.currentThread().sleep(1000);
+				Thread.currentThread().sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
