@@ -25,7 +25,8 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 	 * @param action 0 : avancer ; 1 : gauche ; 2 : droite
 	 * @return
 	 */
-	public synchronized void setAction(int action) {
+	public synchronized void setAction(int action, int vitesse) {
+		this.setDis(vitesse);
 		this.actionTortueCoruante = action;
 	}
 
@@ -35,6 +36,14 @@ public class JeuDeBalle extends EnvironnementTortuesAmeliorees implements Runnab
 		}
 	}
 
+	public synchronized void monter(){
+		tortues.get(tortueCourante).leverCrayon();
+	}
+	
+	public synchronized void baisser(){
+		tortues.get(tortueCourante).baisserCrayon();
+	}
+	
 	private void initTortues(int nbTortues) {
 		tortues.clear();
 		Random rand = new Random();

@@ -191,12 +191,12 @@ public class Tortue {
 	}
 
 	// baisser le crayon pour dessiner
-	public synchronized void baisserCrayon() {
+	public void baisserCrayon() {
 		crayon = true;
 	}
 
 	// lever le crayon pour ne plus dessiner
-	public synchronized void leverCrayon() {
+	public void leverCrayon() {
 		crayon = false;
 	}
 
