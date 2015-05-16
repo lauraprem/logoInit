@@ -13,7 +13,10 @@ public class MenuHautExtension extends MenuHaut {
 
 	public MenuHautExtension(EnvironnementTortue model) {
 		super(model);
-
+		
+		toolBar.add(Box.createRigidArea(HGAP));
+		addButton(toolBar, "Tortue", "Ajout tortue", null);
+		
 		toolBar.add(Box.createRigidArea(HGAP));
 		StringValue = new JTextField("");
 		StringValue.setPreferredSize(new Dimension(80, 5));

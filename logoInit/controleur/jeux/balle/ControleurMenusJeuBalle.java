@@ -3,12 +3,11 @@ package controleur.jeux.balle;
 import java.awt.event.ActionEvent;
 
 import model.EnvironnementTortue;
-import model.EnvironnementTortuesAmeliorees;
 import model.JeuDeBalle;
 import vue.FenetrePrincipal;
-import controleur.Extension.ControleurMenusExtention;
+import controleur.ControleurMenus;
 
-public class ControleurMenusJeuBalle extends ControleurMenusExtention {
+public class ControleurMenusJeuBalle extends ControleurMenus {
 
 	public ControleurMenusJeuBalle(EnvironnementTortue model,
 			FenetrePrincipal vue) {

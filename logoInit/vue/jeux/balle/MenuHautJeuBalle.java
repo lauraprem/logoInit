@@ -3,9 +3,9 @@ package vue.jeux.balle;
 import javax.swing.JTextField;
 
 import model.EnvironnementTortue;
-import vue.Extension.MenuHautExtension;
+import vue.menus.MenuHaut;
 
-public class MenuHautJeuBalle extends MenuHautExtension {
+public class MenuHautJeuBalle extends MenuHaut {
 	protected JTextField StringValue;
 
 	public MenuHautJeuBalle(EnvironnementTortue model) {

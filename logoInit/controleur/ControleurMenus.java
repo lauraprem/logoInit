@@ -25,9 +25,6 @@ public class ControleurMenus implements ActionListener {
 		case "Effacer":
 			model.reset();
 			break;
-		case "Tortue":
-			addTortue();
-			break;
 		case "Avancer":
 			this.setVitesse();
 			model.avancerTortue();

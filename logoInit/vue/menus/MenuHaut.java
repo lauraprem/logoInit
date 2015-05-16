@@ -34,7 +34,6 @@ public class MenuHaut extends JPanel {
 		toolBar = new JToolBar();
 
 		addButton(toolBar, "Effacer", "Nouveau dessin", "/icons/index.png");
-		addButton(toolBar, "Tortue", "Ajout tortue", null);
 
 		toolBar.add(Box.createRigidArea(HGAP));
 		inputValue = new JTextField(Integer.toString(model.getDis()), 5);
