@@ -3,7 +3,6 @@ package controleur.jeux.balle;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import model.EnvironnementTortuesAmeliorees;
 import model.JeuDeBalle;
 import vue.jeux.balle.FenetrePrincipalJeuBalle;
 

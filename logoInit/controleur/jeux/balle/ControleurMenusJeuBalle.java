@@ -20,7 +20,7 @@ public class ControleurMenusJeuBalle extends ControleurMenusExtention {
 
 		switch (ev.getActionCommand()) {
 		case "Start":
-			((JeuDeBalle) model).run();
+			(new Thread((JeuDeBalle) model)).start();
 			System.out.println("Run, Run Foreste !");
 			break;
 		case "Stop":
